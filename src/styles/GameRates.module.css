@@ -1,0 +1,256 @@
+.container {
+  padding: 10px;
+  border-radius: 26px;
+  height: auto;
+  box-sizing: border-box;
+  z-index: 1;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.tabs button {
+  position: relative;
+  flex: 1;
+  padding: 6px;
+  border: none;
+  border-radius: 20px;
+
+  color: inherit;
+
+  font-family: "Onest", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.1;
+  text-align: center;
+  white-space: normal;
+  word-break: break-word;
+  background-clip: padding-box;
+  z-index: 1;
+  overflow: visible;
+  cursor: pointer;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  background: transparent;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.table {
+  width: 100%;
+  font-family: "Onest", sans-serif;
+}
+
+.tableHeader,
+.tableRow {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr 1.1fr;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+}
+
+.tableHeader {
+  font-weight: 400;
+  color: rgba(194, 202, 212, 1);
+  margin-bottom: 6px;
+}
+
+.tableRow {
+  font-weight: 700;
+  color: #fff;
+  padding: 6px 0;
+}
+
+.tableHeader span,
+.tableRow span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.payoutWin {
+  color: rgba(74, 189, 77, 1);
+}
+
+.payoutLoss {
+  color: rgba(189, 74, 76, 1);
+}
+
+.slotName {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #fff;
+}
+
+.userNameCell {
+  max-width: 90%;
+  margin: 0 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.slotLink {
+  max-width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: center;
+  display: inline-block;
+  color: #7da9f5;
+  text-decoration: none;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.needsMask {
+  mask-image: linear-gradient(to right, black 85%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
+}
+
+.slotLink:hover {
+  color: #fff;
+}
+
+.loading,
+.emptyState {
+  text-align: center;
+  padding: 20px;
+  color: #ccc;
+  font-size: 12px;
+}
+
+.limitSelectorContainer {
+  position: relative;
+  margin-top: 10px;
+  margin-left: auto;
+  z-index: 10;
+}
+
+.limitSelectorButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 75px;
+  height: 44px;
+  border-radius: 26px;
+  border-width: 1.5px;
+  font-family: "Onest", sans-serif;
+  font-size: 16px;
+  color: #ffffff;
+  gap: 9px;
+  padding: 7px 14px;
+  cursor: pointer;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.limitDropdown {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  right: 0;
+  width: 100%;
+  max-height: 240px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-radius: 26px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 12;
+  padding: 8px;
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+
+.limitOption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: "Onest", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(194, 202, 212, 1);
+
+  padding: 8px 12px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.limitOption:hover {
+  background: #202938;
+}
+
+.selected {
+  background: rgba(13, 28, 55, 1);
+}
+
+.dropdownIcon {
+  transition: transform 0.2s ease;
+}
+
+.dropdownIcon.open {
+  transform: rotate(180deg);
+}
+
+.tableBody {
+  position: relative;
+  min-height: 260px;
+}
+
+.loadingWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 17, 44, 0.7);
+  border-radius: 30px;
+  z-index: 2;
+  gap: 8px;
+  transition: background 0.3s ease;
+  font-family: Onest, sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 16px;
+  color: rgba(194, 202, 212, 1);
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.loadingIcon {
+  width: 44px;
+  height: 44px;
+  animation: spin 1s linear infinite;
+}
