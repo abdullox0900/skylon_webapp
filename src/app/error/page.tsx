@@ -2,11 +2,9 @@
 
 import { useEffect, useRef } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
-import Lottie from "lottie-react";
-import animationData from "@/../public/lottie/access-denied.json";
 import styles from "@/styles/ErrorScreen.module.css";
-import skins from "@/styles/skins.module.css";
 import { createLogger } from "@/utils/logger";
+import Image from "next/image";
 
 const messageMap: Record<string, string> = {
   invalid_data: "Перезапустите мини-приложение через нашего бота.",
@@ -66,19 +64,19 @@ export default function ErrorPage() {
 
   return (
     <div className={styles.wrapper}>
-      <div className={`${styles.container} ${skins.containerSkin} ${skins.containerWithPattern}`}>
-        <Lottie animationData={animationData} loop className={styles.animation} />
+      <div className={`${styles.container}`}>
+        <Image src="/assets/error/error-logo.svg" className={styles.errorLogo} width={119} height={88} alt="Error" />
         <div className={styles.textBlock}>
-          <h1 className={styles.title}>Ошибка доступа</h1>
+          <h1 className={styles.title}>Ошибка доступа!</h1>
           <p className={styles.subtitle}>{message}</p>
         </div>
         <a
           href="https://t.me/FrostyWinBot"
-          className={`${styles.telegramButton} ${skins.blueGlowSkin}`}
+          className={`${styles.telegramButton}`}
           onClick={handleTelegramClick}
         >
           <img src="/assets/error/tg_icon.svg" alt="Telegram" className={styles.telegramIcon} />
-          @Frosted
+          Frosty Casino
         </a>
       </div>
     </div>

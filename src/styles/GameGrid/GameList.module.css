@@ -1,174 +1,166 @@
 .gridWrapper {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  transition: min-height 0.3s ease;
-  position: relative;
-  z-index: 1; 
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    transition: min-height 0.3s ease;
+    position: relative;
+    z-index: 1;
 }
 
 .grid {
-  position: relative;
-  display: grid;
-  gap: 12px;
-  width: 100%;
-  max-width: 400px;
-  place-items: center;
-  transition: opacity 0.15s ease;
+    position: relative;
+    display: grid;
+    gap: 12px;
+    width: 100%;
+    max-width: 400px;
+    place-items: center;
+    transition: opacity 0.15s ease;
 }
 
 .emptyState {
-  grid-column: 1 / -1;
-  text-align: center;
-  font-size: 14px;
-  color: rgba(194, 202, 212, 0.8);
-  font-family: "Onest", sans-serif;
-  opacity: 0.8;
-  padding: 30px 0;
+    grid-column: 1 / -1;
+    text-align: center;
+    font-size: 14px;
+    color: rgba(194, 202, 212, 0.8);
+    font-family: "Onest", sans-serif;
+    opacity: 0.8;
+    padding: 30px 0;
 }
 
 .card {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 106 / 145;
-  border-radius: 26px;
-  overflow: hidden;
-  background-color: transparent;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-  outline: none;
-  -webkit-tap-highlight-color: transparent;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 106 / 145;
+    border-radius: 26px;
+    overflow: hidden;
+    background-color: transparent;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 
 .card:hover {
-  transform: translateY(-5px);
+    transform: translateY(-5px);
 }
 
 .card:active {
-  transform: scale(0.95);
-  transition: transform 0.1s ease;
+    transform: scale(0.95);
+    transition: transform 0.1s ease;
 }
 
 @keyframes fadeIn {
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 .image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .showMoreButton {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 7px 14px;
-  width: 200px;
-  height: 40px;
-  border-width: 1.5px;
-  border-radius: 26px;
-
-  font-family: 'Onest', sans-serif;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 24px;
-  color: rgba(194, 202, 212, 1);
-  cursor: pointer;
-  transition: opacity 0.2s ease;
-  z-index: 1;
-  outline: none;
-  -webkit-tap-highlight-color: transparent;
-  transition: transform 0.15s ease, opacity 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 16px;
+    height: 47px;
+    border-width: 1.5px;
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 100%;
+    color: #F0F5FF;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+    z-index: 1;
+    outline: none;
+    border: none;
+    background-color: #212738;
+    transition: transform 0.15s ease, opacity 0.2s ease;
 }
 
 .showMoreButton:hover {
-  opacity: 0.9;
-}
-
-.showMoreIcon {
-  height: 24px;
+    opacity: 0.9;
 }
 
 .loadingText {
-  font-family: 'Onest', sans-serif;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 24px;
-  color: rgba(194, 202, 212, 1);
-  text-align: center;
-  padding: 10px 0;
+    font-family: 'Onest', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: rgba(194, 202, 212, 1);
+    text-align: center;
+    padding: 10px 0;
 }
 
 .gridOverlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(7, 18, 37, 0.6);
-  border-radius: 26px;
-  z-index: 2;
-  pointer-events: none;
-  min-height: 200px;
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(7, 18, 37, 0.6);
+    border-radius: 26px;
+    z-index: 2;
+    pointer-events: none;
+    min-height: 200px;
 }
 
 .spinner {
-  width: 36px;
-  height: 36px;
-  animation: spin 1s linear infinite;
-  opacity: 0.9;
+    width: 36px;
+    height: 36px;
+    animation: spin 1s linear infinite;
+    opacity: 0.9;
 }
 
+
+
 @keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 @media (min-width: 360px) {
-  .grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 @media (max-width: 359px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 279px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
+    .grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 @keyframes slotFadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px) scale(0.95);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
 .card {
-  opacity: 0;
-  animation: slotFadeInUp 0.4s ease forwards;
-  animation-delay: var(--fade-delay, 0ms);
-}
-
-.showMoreButton:active {
-  transform: scale(0.96);
-  opacity: 0.85;
+    opacity: 0;
+    animation: slotFadeInUp 0.4s ease forwards;
+    animation-delay: var(--fade-delay, 0ms);
 }

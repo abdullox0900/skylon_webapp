@@ -1,180 +1,164 @@
+.header {
+    padding: 0 20px;
+    background-color: #131824;
+}
+
 .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  max-width: 400px;
-  height: 61px;
-  border-radius: 26px;
-  padding: 0 9px;
-  gap: 8px;
-  margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    height: 61px;
+    border-radius: 26px;
+    gap: 8px;
+    margin: 0 auto;
 }
 
 @media (max-width: 300px) {
-  .container {
-    flex-direction: column;
-    height: auto;
-    gap: 6px;
-    padding: 8px;
-  }
+    .container {
+        flex-direction: column;
+        height: auto;
+        gap: 6px;
+        padding: 8px;
+    }
 }
 
 .logoBlock {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  outline: none;
-  -webkit-tap-highlight-color: transparent;
-  height: 40px;
-  margin-left: 6px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    height: 23px;
 }
 
 .logoImage {
-  height: 100%;
-  width: auto;
-  display: block;
-  transition: transform 0.15s ease;
+    height: 100%;
+    width: auto;
+    display: block;
+    transition: transform 0.15s ease;
 }
 
 .logoBlock:active .logoImage {
-  transform: scale(0.92);
+    transform: scale(0.92);
 }
 
 .incognitoBtn {
-  all: unset;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background-color: transparent;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-  transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
-  outline: none;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.incognitoBtn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.incognitoBtn:active {
-  transform: scale(0.95);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
-}
-
-@keyframes springPress {
-  0%   { transform: scale(1); }
-  50%  { transform: scale(0.92); }
-  100% { transform: scale(1); }
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background-color: transparent;
 }
 
 .spring {
-  animation: springPress 300ms ease-out;
+    animation: springPress 300ms ease-out;
 }
 
 .incognitoBtn svg {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 }
 
 .userCompact {
-  flex-shrink: 1;
-  min-width: 140px;
-  overflow: hidden;
-  height: 44px;
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  border-width: 1.5px;
-  padding: 5px 6px;
-  gap: 5px;
+    flex-shrink: 1;
+    min-width: 140px;
+    overflow: hidden;
+    height: 44px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    border-width: 1.5px;
+    padding: 5px 6px;
+    gap: 5px;
 }
 
 @media (max-width: 360px) {
-  .userCompact {
-    padding: 3px 8px;
-    gap: 6px;
-  }
+    .userCompact {
+        padding: 3px 8px;
+        gap: 6px;
+    }
 }
 
 @media (max-width: 320px) {
-  .userCompact {
-    padding: 3px 8px;
-  }
+    .userCompact {
+        padding: 3px 8px;
+    }
 }
 
 .userAvatar {
-  width: 33px;
-  height: 33px;
-  border-radius: 27px;
-  object-fit: cover;
-  flex-shrink: 0;
-  box-shadow: 0px 4px 86.1px rgba(0, 0, 0, 0.25);
+    width: 33px;
+    height: 33px;
+    border-radius: 27px;
+    object-fit: cover;
+    flex-shrink: 0;
+    box-shadow: 0px 4px 86.1px rgba(0, 0, 0, 0.25);
 }
 
 @media (max-width: 360px) {
-  .userAvatar {
-    width: 28px;
-    height: 28px;
-  }
+    .userAvatar {
+        width: 28px;
+        height: 28px;
+    }
 }
 
 .userTag {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  flex: 1;
-  min-width: 0;
-  overflow: hidden;
-  line-height: 1.1;
-  padding-top: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    line-height: 1.1;
+    padding-top: 2px;
 }
 
 .userName {
-  font-family: Onest;
-  font-weight: 700;
-  font-size: 12px;
-  color: #fff;
-  margin-bottom: 2px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+    font-family: Onest;
+    font-weight: 700;
+    font-size: 12px;
+    color: #fff;
+    margin-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .userBalance {
-  font-family: Onest, sans-serif;
-  font-weight: 700;
-  font-size: 16px;
-  color: #fff;
-  white-space: nowrap;
+    font-family: Onest, sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #fff;
+    white-space: nowrap;
 }
 
 @media (max-width: 360px) {
-  .userBalance {
-    font-size: 13px;
-  }
+    .userBalance {
+        font-size: 13px;
+    }
 }
 
 .fade {
-  opacity: 0;
-  transform: scale(0.98) translateY(2px);
-  transition: opacity 0.2s ease, transform 0.2s ease;
-  animation: fadeInUp 0.25s ease forwards;
+    opacity: 0;
+    transform: scale(0.98) translateY(2px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    animation: fadeInUp 0.25s ease forwards;
 }
 
 @keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: scale(0.98) translateY(6px);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
+    0% {
+        opacity: 0;
+        transform: scale(0.98) translateY(6px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
 }

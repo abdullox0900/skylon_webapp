@@ -83,14 +83,18 @@ export default function AppInit({ children }: { children: React.ReactNode }) {
 
         if (status !== "ok") {
           log.warn("Redirecting due to verification failure", { op_id: opIdRef.current, reason: status });
-          router.replace(`/error?msg=${status}`);
+          // Temporarily disabled for local development
+          // router.replace(`/error?msg=${status}`);
+          router.replace("/games");
           return;
         }
 
         const userId = WebApp.initDataUnsafe?.user?.id;
         if (!userId) {
           log.error("No Telegram user_id found in initData", { op_id: opIdRef.current });
-          router.replace("/error?msg=no_telegram_id");
+          // Temporarily disabled for local development
+          // router.replace("/error?msg=no_telegram_id");
+          router.replace("/games");
           return;
         }
 
@@ -111,7 +115,9 @@ export default function AppInit({ children }: { children: React.ReactNode }) {
 
         if (user.block === 1) {
           log.warn("User is blocked, redirecting", { op_id: opIdRef.current, userId });
-          router.replace("/error?msg=blocked");
+          // Temporarily disabled for local development
+          // router.replace("/error?msg=blocked");
+          router.replace("/games");
           return;
         }
 
@@ -131,11 +137,13 @@ export default function AppInit({ children }: { children: React.ReactNode }) {
           op_id: opIdRef.current,
           error: e?.message || String(e),
         });
-        router.replace("/error?msg=unknown");
+        // Temporarily disabled for local development
+        // router.replace("/error?msg=unknown");
+        router.replace("/games");
       }
     })();
   }, [client, pathname, router, setUser, log]);
 
-  if (loading) return <BrandedLoading />;
+  // if (loading) return <BrandedLoading />;
   return <>{children}</>;
 }

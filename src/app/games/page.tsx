@@ -25,13 +25,15 @@ export default function SlotsPage() {
   }, [log, opId]);
 
   return (
-    <main className={styles.main}>
+   
+    <main>
       <Header />
+      <div className={styles.main}>
       <div className={styles.content}>
         <GameGrid />
-        <ProviderCarousel />
         <GameRates />
       </div>
+    </div>
     </main>
   );
 }

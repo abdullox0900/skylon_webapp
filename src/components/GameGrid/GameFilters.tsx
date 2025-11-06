@@ -66,7 +66,7 @@ export default function GameFilters({
           <span className={styles.searchIcon}></span>
           <input
             type="text"
-            placeholder="Поиск игры"
+            placeholder="Поиск"
             value={search}
             onChange={(e) => {
               setSearch(e.target.value);
@@ -75,17 +75,6 @@ export default function GameFilters({
             className={styles.searchInput}
           />
         </div>
-        <button
-          onClick={() => {
-            setShowOnlyFavorites(prev => {
-              const newValue = !prev;
-              log.info("Favorites filter toggled", { op_id: opId, enabled: newValue });
-              return newValue;
-            });
-          }}
-          className={`${styles.favoriteButton} ${showOnlyFavorites ? styles.active : ""}`}
-          title="Избранные игры"
-        />
       </div>
 
       <div className={styles.bottomControlsRow}>

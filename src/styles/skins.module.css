@@ -1,83 +1,79 @@
 .blueGlowSkin {
-  position: relative;
-  border-radius: 1000px;
-  padding: 4px 12px;
-  background: linear-gradient(180deg, #6DD8D8 0%, #006DAF 100%) !important;
-  box-shadow: 0 0 27.1px rgba(5, 103, 195, 0.3);
-  color: #ffffff;
-  font-weight: 700;
-  overflow: hidden;
+    position: relative;
+    border-radius: 1000px;
+    padding: 4px 12px;
+    background: linear-gradient(180deg, #6DD8D8 0%, #006DAF 100%) !important;
+    box-shadow: 0 0 27.1px rgba(5, 103, 195, 0.3);
+    color: #ffffff;
+    font-weight: 700;
+    overflow: hidden;
 }
 
 .blueGlowSkin::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  padding: 1.5px;
-  border-radius: inherit;
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1.5px;
+    border-radius: inherit;
 
-  background: linear-gradient(
-    180deg,
-    rgba(234, 255, 255, 0.75),
-    rgba(39, 209, 245, 0.75)
-  );
+    background: linear-gradient(180deg,
+            rgba(234, 255, 255, 0.75),
+            rgba(39, 209, 245, 0.75));
 
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask-composite: exclude;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
 
-  pointer-events: none;
-  z-index: 1;
+    pointer-events: none;
+    z-index: 1;
 }
 
 .slotBorderSkin::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 2px;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.4),
-    rgba(255, 255, 255, 0.04)
-  );
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask-composite: exclude;
-  pointer-events: none;
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(180deg,
+            rgba(255, 255, 255, 0.4),
+            rgba(255, 255, 255, 0.04));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
 }
 
 .containerSkin {
-  background: linear-gradient(180deg, #001435 0%, #000D22 89.42%);
-  border: 1px solid rgba(126, 220, 238, 0.15);
-  width: 100%;
-  max-width: 400px;
-  min-width: 280px;
-  padding: 10px;
-  border-radius: 26px;
+    background: linear-gradient(180deg, #001435 0%, #000D22 89.42%);
+    border: 1px solid rgba(126, 220, 238, 0.15);
+    width: 100%;
+    max-width: 400px;
+    min-width: 280px;
+    padding: 10px;
+    border-radius: 26px;
 }
 
 .darkblueSkin {
-  background: rgba(0, 17, 44, 1);
-  border: 1px solid rgba(126, 220, 238, 0.15)
+    background: rgba(0, 17, 44, 1);
+    border: 1px solid rgba(126, 220, 238, 0.15)
 }
 
 .containerWithPattern {
-  position: relative;
-  z-index: 0;
+    position: relative;
+    z-index: 0;
 }
 
 .containerWithPattern::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("/assets/pattern.svg");
-  background-size: 180px;
-  background-repeat: repeat;
-  background-position: center;
-  opacity: 0.1;
-  pointer-events: none;
-  z-index: 0;
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("/assets/pattern.svg");
+    background-size: 180px;
+    background-repeat: repeat;
+    background-position: center;
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: 0;
 }

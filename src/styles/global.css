@@ -1,50 +1,41 @@
 :root {
-  --background-gradient: linear-gradient(180deg, #0D0E13 0%, #1A1B21 100%);
-  --card-bg: rgba(255, 255, 255, 0.05);
-  --accent-color: #1F80E0;
-  --accent-hover: #1465B3;
-  --text-color: #FFFFFF;
-  --border-radius: 16px;
-  --shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    --background-gradient: linear-gradient(180deg, #0D0E13 0%, #1A1B21 100%);
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --accent-color: #1F80E0;
+    --accent-hover: #1465B3;
+    --text-color: #FFFFFF;
+    --border-radius: 16px;
+    --shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 html,
 body {
-  margin: 0;
-  padding: 0;
-  font-family: "Arial", "Helvetica", sans-serif;
-  background: var(--background-gradient);
-  color: var(--text-color);
-  min-height: 100vh;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    font-family: "Arial", "Helvetica", sans-serif;
+    background: var(--background-gradient);
+    color: var(--text-color);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
-main {
-  padding: 1rem;
-}
 body {
-  background: rgba(8, 17, 31, 1);
-  background-image: url("/assets/bg.svg");
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: cover;
-
-  position: relative;
-  min-height: 100vh;
-  overflow-x: hidden;
+    background: #090D14;
+    position: relative;
+    min-height: 100vh;
 }
 
 .pageContent {
-  position: relative;
-  z-index: 1;
+    position: relative;
+    z-index: 1;
 }

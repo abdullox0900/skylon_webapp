@@ -120,10 +120,11 @@ export default function GameRates({ gameId }: GameRatesProps) {
   const limits = [10, 20, 30, 40, 50];
 
   return (
-    <div className={`${styles.container} ${skins.containerSkin} ${skins.containerWithPattern}`}>
+    <div className={`${styles.container}`}>
       <div className={styles.tabs}>
+        <div className={styles.tabBox}>
         <button
-          className={tab === "high" ? skins.blueGlowSkin : ""}
+          className={`${styles.tabButton} ${tab === "high" ? styles.activeTab : ""}`}
           onClick={() => {
             setTab("high");
             log.info("Tab changed", { op_id: opId, newTab: "high" });
@@ -132,7 +133,7 @@ export default function GameRates({ gameId }: GameRatesProps) {
           Крупные ставки
         </button>
         <button
-          className={tab === "my" ? skins.blueGlowSkin : ""}
+          className={`${styles.tabButton} ${tab === "my" ? styles.activeTab : ""}`}
           onClick={() => {
             setTab("my");
             log.info("Tab changed", { op_id: opId, newTab: "my" });
@@ -141,7 +142,7 @@ export default function GameRates({ gameId }: GameRatesProps) {
           Мои ставки
         </button>
         <button
-          className={tab === "all" ? skins.blueGlowSkin : ""}
+          className={`${styles.tabButton} ${tab === "all" ? styles.activeTab : ""}`}
           onClick={() => {
             setTab("all");
             log.info("Tab changed", { op_id: opId, newTab: "all" });
@@ -149,6 +150,20 @@ export default function GameRates({ gameId }: GameRatesProps) {
         >
           Все ставки
         </button>
+        </div>
+        <div
+          className={`${styles.limitSelectorButton} ${skins.darkblueSkin}`}
+          onClick={() => setShowDropdown(!showDropdown)}
+        >
+          <span>{limit}</span>
+          <Image
+            src="/assets/GameGrid/arrow_buttons.svg"
+            alt="arrow"
+            width={12}
+            height={12}
+            className={`${styles.dropdownIcon} ${showDropdown ? styles.open : ""}`}
+          />
+        </div>
       </div>
 
       <div className={styles.table}>
@@ -179,40 +194,28 @@ export default function GameRates({ gameId }: GameRatesProps) {
           )}
         </div>
       </div>
-
       <div className={styles.limitSelectorContainer}>
-        <div
-          className={`${styles.limitSelectorButton} ${skins.darkblueSkin}`}
-          onClick={() => setShowDropdown(!showDropdown)}
-        >
-          <span>{limit}</span>
-          <Image
-            src="/assets/GameRates/stats_limits_arrow.svg"
-            alt="arrow"
-            width={12}
-            height={12}
-            className={`${styles.dropdownIcon} ${showDropdown ? styles.open : ""}`}
-          />
-        </div>
+      
 
-        {showDropdown && (
-          <div className={`${styles.limitDropdown} ${skins.darkblueSkin}`}>
-            {limits.map((val) => (
-              <div
-                key={val}
-                className={`${styles.limitOption} ${limit === val ? styles.selected : ""}`}
-                onClick={() => {
-                  setLimit(val);
-                  setShowDropdown(false);
-                  log.info("Limit changed", { op_id: opId, newLimit: val });
-                }}
-              >
-                {val}
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
+      {showDropdown && (
+        <div className={`${styles.limitDropdown} ${skins.darkblueSkin}`}>
+          {limits.map((val) => (
+            <div
+              key={val}
+              className={`${styles.limitOption} ${limit === val ? styles.selected : ""}`}
+              onClick={() => {
+                setLimit(val);
+                setShowDropdown(false);
+                log.info("Limit changed", { op_id: opId, newLimit: val });
+              }}
+            >
+              {val}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+     
     </div>
   );
 }

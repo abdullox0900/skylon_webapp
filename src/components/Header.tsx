@@ -7,6 +7,8 @@ import { useAPI } from "@/context/APIContext";
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { createLogger } from "@/utils/logger";
+import Image from "next/image";
+
 
 export default function Header() {
   const { user, setUser, originalAvatar, setOriginalAvatar, setProfileChanged } = useUser();
@@ -83,13 +85,10 @@ export default function Header() {
   };
 
   return (
-    <div className={`${styles.container} ${skins.containerSkin} ${skins.containerWithPattern}`}>
+    <div className={styles.header}>
+      <div className={`${styles.container}`}>
       <div className={styles.logoBlock} onClick={handleLogoClick}>
-        <img
-          src="/assets/Header/logo_title.svg"
-          alt="Frosty Casino"
-          className={styles.logoImage}
-        />
+        <Image src="/assets/Header/logo.svg" alt="Frosty Casino" className={styles.logoImage} width={94} height={23} />
       </div>
 
       <button
@@ -113,11 +112,13 @@ export default function Header() {
           src={
             user?.is_hidden
               ? "/assets/Header/anonum_on.svg"
-              : "/assets/Header/anonum_off.svg"
+              : "/assets/Header/profile-oval.svg"
           }
           alt="Инкогнито"
           className={styles.incognitoAvatar}
         />
+
+        <img src="/assets/right-arrow.svg" alt="" />
       </button>
 
       {user && (
@@ -141,6 +142,7 @@ export default function Header() {
           </div>
         </div>
       )}
+    </div>
     </div>
   );
 }

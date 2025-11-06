@@ -122,7 +122,7 @@ export default function GameGrid() {
   }, [initialized, client, userId, search, selectedProviders.join(","), sortOption, showOnlyFavorites]);
 
   return (
-    <div className={`${styles.container} ${skins.containerSkin} ${skins.containerWithPattern}`}>
+    <div className={`${styles.container}`}>
       <GameFilters
         search={search}
         setSearch={(val) => {

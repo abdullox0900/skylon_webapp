@@ -102,18 +102,13 @@ export default function GameList({
 
       {!loading && !noMoreGames && (
         <button
-          className={`${styles.showMoreButton} ${skins.darkblueSkin}`}
+          className={`${styles.showMoreButton}`}
           onClick={() => {
             log.info("Load more games", { op_id: opId });
             fetchGames(true);
           }}
         >
-          <img
-            src="/assets/GameGrid/more_icon.svg"
-            alt="Показать ещё"
-            className={styles.showMoreIcon}
-          />
-          Показать ещё
+            Смотреть больше
         </button>
       )}
     </>
