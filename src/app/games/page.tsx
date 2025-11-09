@@ -7,6 +7,7 @@ import GameRates from "@/components/GameRates";
 import ProviderCarousel from "@/components/ProviderCarousel";
 import styles from "@/styles/ComponentsGlobal.module.css";
 import { createLogger } from "@/utils/logger";
+import SlotsBanner from "@/components/SlotsBanner";
 
 export default function SlotsPage() {
   const log = useRef(createLogger("SlotsPage")).current;
@@ -28,6 +29,7 @@ export default function SlotsPage() {
    
     <main>
       <Header />
+      <SlotsBanner title="Слоты" />
       <div className={styles.main}>
       <div className={styles.content}>
         <GameGrid />

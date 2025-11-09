@@ -1,0 +1,71 @@
+/* components/SlotsBanner/SlotsBanner.module.css */
+.wrap {
+    position: relative;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    min-height: 120px;
+    padding: 16px 36px;
+    background-color: #0F141F;
+    overflow: hidden;
+}
+
+.wrap::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background-image: url("/slot-logo-center.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    /* ✅ bu joyda markazga oladi */
+    opacity: 0.1;
+    transform: translate(-50%, -50%);
+    /* ✅ elementning o‘zini markazga suradi */
+    z-index: 1;
+    pointer-events: none;
+}
+
+.wrap::after {
+    content: "";
+    position: absolute;
+    top: 5px;
+    right: 0;
+    width: 210px;
+    height: 100%;
+    background-image: url("/slot-bg-element.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.title {
+    color: #e6ebf2;
+    font-size: 26px;
+    font-weight: 700;
+    z-index: 1;
+}
+
+@media (max-width: 768px) {
+    .wrap {
+        min-height: 90px;
+        padding: 14px 16px;
+        background-size: 60%;
+    }
+
+    .title {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    .wrap {
+        background-size: 80%;
+        background-position: 120% center;
+        /* rasm ozgina tashqarida tursin */
+    }
+}

@@ -4,6 +4,7 @@ import { useRef, useEffect, useState } from "react";
 import type { GameInfo } from "@/types/api_client";
 import type { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 import { createLogger } from "@/utils/logger";
+import GamePlaceholderCardGrid from "../GamePlaceholderCardGrid";
 
 interface Props {
   games: GameInfo[];
@@ -55,11 +56,14 @@ export default function GameList({
         className={styles.gridWrapper}
         style={{ minHeight: loading ? 200 : undefined }}
       >
+
         <div
           ref={gridRef}
           className={`${styles.grid} ${loading ? styles.loading : styles.loaded}`}
         >
           {isEmpty && (
+      // <GamePlaceholderCardGrid />
+
             <div className={styles.emptyState}>Нет доступных игр</div>
           )}
 
@@ -98,7 +102,7 @@ export default function GameList({
         </div>
       </div>
 
-      {isAppending && <p className={styles.loadingText}>Загрузка...</p>}
+      {isAppending && <p className={styles.loadingText}>Загрузка...</p>}       
 
       {!loading && !noMoreGames && (
         <button

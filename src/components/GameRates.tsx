@@ -169,7 +169,6 @@ export default function GameRates({ gameId }: GameRatesProps) {
       <div className={styles.table}>
         <div className={styles.tableHeader}>
           <span>Игрок</span>
-          <span>Слот</span>
           <span>Выплата</span>
         </div>
 

@@ -113,21 +113,27 @@
 
 .table {
     width: 100%;
-    font-family: "Onest", sans-serif;
+    background-color: #131824;
+    border-radius: 12px;
 }
 
 .tableHeader,
 .tableRow {
-    display: grid;
-    grid-template-columns: 1fr 1.3fr 1.1fr;
-    font-size: 12px;
-    line-height: 16px;
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    line-height: 100%;
+
+    padding: 10px 16px;
+    background-color: #212738;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
 }
 
 .tableHeader {
-    font-weight: 400;
-    color: rgba(194, 202, 212, 1);
+    font-weight: 600;
+    color: #fff;
     margin-bottom: 6px;
 }
 

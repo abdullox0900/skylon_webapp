@@ -1,0 +1,28 @@
+.placeholderWrap {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    justify-items: center;
+    align-items: center;
+}
+
+.placeholderCard {
+    min-width: 114px;
+    width: 100%;
+    height: 149px;
+    background-color: #131824;
+    border-radius: 12px;
+    animation: pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 0.35;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+}
