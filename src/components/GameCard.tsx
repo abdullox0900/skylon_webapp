@@ -168,8 +168,8 @@ export default function GameCard({ gameId, opId }: GameCardProps) {
          <div className={styles.topBlock}>
            <div className={`${styles.imageWrapper}`}>
                <img
-                 // src={gameInfo.image || "/placeholder.jpg"}
-                 // alt={gameInfo.name}
+                 src={gameInfo.image || "/placeholder.jpg"}
+                 alt={gameInfo.name}
                  className={styles.slotImage}
                  loading="eager"
                  decoding="async"
@@ -177,9 +177,9 @@ export default function GameCard({ gameId, opId }: GameCardProps) {
            </div>
  
            <div className={styles.details}>
-             {/* <div className={styles.name}>{gameInfo.name}}</div> */}
+             <div className={styles.name}>{gameInfo.name}</div>
              <div className={styles.provider}>
-             {/* {gameInfo.provider?.label || gameInfo.provider?.provider || ""} */}
+             {gameInfo.provider?.label || gameInfo.provider?.provider || ""}
              </div>
  
             <div className={styles.favoriteBtnWrap}>
@@ -192,9 +192,9 @@ export default function GameCard({ gameId, opId }: GameCardProps) {
              >
                <img
                    src={
-                     // gameInfo.is_favorite
-                       // "/assets/GameCard/favorite_active_card.svg"
-                       "/assets/GameCard/favorite_card.svg"
+                     gameInfo.is_favorite 
+                       ? "/assets/GameCard/favorite_active_card.svg"
+                       : "/assets/GameCard/favorite_card.svg"
                    }
                    alt="Избранное"
                  />
