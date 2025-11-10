@@ -3,7 +3,7 @@
     flex-direction: column;
     box-sizing: border-box;
     gap: 14px;
-    /* min-height: 340px; */
+    min-height: 237px;
     position: relative;
     transition: min-height 0.2s ease;
 }
@@ -78,6 +78,7 @@
     position: absolute;
     top: 16px;
     right: 16px;
+    z-index: 10;
 }
 
 .favoriteBtn {
