@@ -337,7 +337,14 @@
 
 .tableBody {
     position: relative;
-    min-height: 260px;
+    max-height: 350px;
+    overflow-y: scroll;
+    /* Hide scrollbars but keep scrolling */
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE 10+ */
+    -webkit-overflow-scrolling: touch;
 }
 
 .loadingWrapper {
