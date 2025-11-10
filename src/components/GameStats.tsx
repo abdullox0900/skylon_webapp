@@ -146,7 +146,7 @@ export default function GameStats({ gameId }: GameStatsProps) {
             {item ? (
               <div className={styles.placesWrap}>
                <div className={styles.placesImaga}>
-                 <Image className={styles.placesAvatar} src={item?.user_avatar_url || ''} width={44} height={44} alt="user-img" />
+                 <Image className={styles.placesAvatar} src={item?.user_avatar_url || '/game-stats-oval.svg'} width={44} height={44} alt="user-img" />
                </div>
                <div className={styles.nameWrapper}>
                   <div className={styles.placesName}>
