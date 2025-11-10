@@ -5,6 +5,7 @@ import type { GameInfo } from "@/types/api_client";
 import type { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 import { createLogger } from "@/utils/logger";
 import GamePlaceholderCardGrid from "../GamePlaceholderCardGrid";
+import Loading from "../Loading";
 
 interface Props {
   games: GameInfo[];
@@ -74,7 +75,7 @@ export default function GameList({
             return (
               <div
                 key={game.uuid}
-                className={`${styles.card} ${skins.slotBorderSkin}`}
+                className={`${styles.card}`}
                 style={{ "--fade-delay": `${delay}ms` } as React.CSSProperties}
                 onClick={() => {
                   log.info("Open game", { op_id: opId, game_id: game.uuid, game_name: game.name });
@@ -90,13 +91,10 @@ export default function GameList({
             );
           })}
 
+
           {isReloading && (
             <div className={styles.gridOverlay}>
-              <img
-                src="/assets/spinner.svg"
-                alt="Загрузка..."
-                className={styles.spinner}
-              />
+                <Loading size={100} backgroundColor="#131824" logoScale={0.50} />
             </div>
           )}
         </div>

@@ -11,6 +11,8 @@ const onest = Onest({
   display: "swap",
 });
 
+
+
 const log = createLogger("RootLayout");
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -29,9 +31,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <APIProvider>
           <UserProvider>
-              <AppInit>
+              {/* <AppInit> */}
               {children}
-              </AppInit>
+              {/* </AppInit> */}
           </UserProvider>
         </APIProvider>
       </body>

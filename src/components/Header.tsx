@@ -121,7 +121,7 @@ export default function Header() {
         <img
           src={
             user?.is_hidden
-              ? "/assets/Header/anonum_on.svg"
+              ? "/assets/Header/profile-oval.svg"
               : "/assets/Header/profile-oval.svg"
           }
           alt="Инкогнито"

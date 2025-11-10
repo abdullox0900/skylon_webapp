@@ -150,7 +150,7 @@ export default function GameRates({ gameId }: GameRatesProps) {
           <div className={styles.tabsFade} aria-hidden="true" />
         </div>
         <div
-          className={`${styles.limitSelectorButton} ${skins.darkblueSkin}`}
+          className={`${styles.limitSelectorButton}`}
           onClick={() => setShowDropdown(!showDropdown)}
         >
           <span>{limit}</span>

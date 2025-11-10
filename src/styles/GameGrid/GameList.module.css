@@ -14,6 +14,7 @@
     gap: 12px;
     width: 100%;
     max-width: 400px;
+    min-height: 250px;
     place-items: center;
     transition: opacity 0.15s ease;
 }
@@ -32,11 +33,12 @@
     position: relative;
     width: 100%;
     aspect-ratio: 106 / 145;
-    border-radius: 26px;
+    border-radius: 10px;
     overflow: hidden;
     background-color: transparent;
     cursor: pointer;
     transition: transform 0.2s ease;
+    background-color: #131824;
     outline: none;
     -webkit-tap-highlight-color: transparent;
 }
@@ -107,9 +109,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(7, 18, 37, 0.6);
-    border-radius: 26px;
-    z-index: 2;
+    background: #131824;
+    border-radius: 10px;
+    z-index: 100;
     pointer-events: none;
     min-height: 200px;
 }
