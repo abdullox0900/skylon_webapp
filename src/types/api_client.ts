@@ -117,6 +117,7 @@ export interface TransactionEntry {
   source: string;
   type: string;
   slot_name: string;
+  slot_image_url: string;
 }
 
 export interface Fingerprint {
