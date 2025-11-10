@@ -149,7 +149,7 @@ export default function GameStats({ gameId }: GameStatsProps) {
                </div>
                <div className={styles.nameWrapper}>
                   <div className={styles.placesName}>
-                    {item.is_hidden === 1 ? "Аноним" : item.user_name}
+                    {item.is_hidden === 1 ? "Аноним" : item.user_name.slice(0, 10)}
                   </div>
                 </div>
                 <div className={styles.placesAmount}>
