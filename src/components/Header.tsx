@@ -118,7 +118,8 @@ export default function Header() {
         disabled={loading}
         title="Переключить отображение имени"
       >
-        <img
+       <div className={styles.avatarWrap}>
+       <img
           src={
             user?.is_hidden
               ? "/assets/Header/profile-oval.svg"
@@ -127,8 +128,9 @@ export default function Header() {
           alt="Инкогнито"
           className={styles.incognitoAvatar}
         />
+       </div>
 
-        <img src="/assets/right-arrow.svg" alt="" />
+        {/* <img src="/assets/right-arrow.svg" alt="" /> */}
       </button>
       </div>
     </div>

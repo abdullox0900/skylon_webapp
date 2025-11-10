@@ -10,6 +10,7 @@ import Lottie from "lottie-react";
 import animationData from "@/../public/lottie/loading.json";
 import skins from "@/styles/skins.module.css";
 import { createLogger } from "@/utils/logger";
+import BrandedLoading from "./BrandedLoading";
 
 interface GamePlayProps {
   gameId: string;
@@ -83,11 +84,8 @@ export default function GamePlay({ gameId, mode, fullscreen }: GamePlayProps) {
   if (!sessionUrl) {
     return (
       <div className={styles.centeredWrapper}>
-        <div className={`${styles.loaderContainer} ${skins.containerSkin} ${skins.containerWithPattern}`}>
-          <div className={styles.animation}>
-            <Lottie animationData={animationData} loop autoplay style={{ width: "100%", height: "100%" }} />
-          </div>
-          <p className={styles.loadingText}>Загрузка...</p>
+        <div className={`${styles.loaderContainer}`}>
+            <BrandedLoading />
         </div>
       </div>
     );
