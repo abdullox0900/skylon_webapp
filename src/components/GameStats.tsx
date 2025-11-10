@@ -14,6 +14,7 @@ interface PlayerStat {
   is_hidden: number;
   payout: number;
   date?: number;
+  user_avatar_url?: string;
 }
 
 interface GameStatsProps {
@@ -145,7 +146,7 @@ export default function GameStats({ gameId }: GameStatsProps) {
             {item ? (
               <div className={styles.placesWrap}>
                <div className={styles.placesImaga}>
-                 {/* <Image src={''} width={44} height={44} alt="user-img" /> */}
+                 <Image className={styles.placesAvatar} src={item?.user_avatar_url || ''} width={44} height={44} alt="user-img" />
                </div>
                <div className={styles.nameWrapper}>
                   <div className={styles.placesName}>
