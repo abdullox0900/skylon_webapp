@@ -134,7 +134,7 @@ export default function GameRates({ gameId }: GameRatesProps) {
             log.info("Tab changed", { op_id: opId, newTab: "high" });
           }}
         >
-          Крупные ставки
+          Крупные игроки        
         </button>
         <button
           className={`${styles.tabButton} ${tab === "my" ? styles.activeTab : ""}`}

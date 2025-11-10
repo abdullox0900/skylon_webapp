@@ -248,31 +248,43 @@
 
 .providerItem input[type="checkbox"] {
     appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
     width: 16px;
     height: 16px;
     border: 2px solid rgba(194, 202, 212, 0.5);
     border-radius: 4px;
     background-color: transparent;
     cursor: pointer;
-    display: grid;
-    place-content: center;
+    display: inline-block;
+    position: relative;
     transition: background 0.2s ease, border-color 0.2s ease;
     flex-shrink: 0;
     align-self: center;
+    margin: 0;
 }
 
+.providerItem input[type="checkbox"]:checked {
+    background-color: #4ABD4D;
+    border-color: #4ABD4D;
+}
 
 .providerItem input[type="checkbox"]::after {
-    content: "";
-    width: 10px;
-    height: 10px;
-    transform: scale(0);
+    content: "✓";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1;
     transition: transform 0.2s ease;
-    display: block;
+    pointer-events: none;
 }
 
 .providerItem input[type="checkbox"]:checked::after {
-    transform: scale(1);
+    transform: translate(-50%, -50%) scale(1);
 }
 
 .providersMenu {
