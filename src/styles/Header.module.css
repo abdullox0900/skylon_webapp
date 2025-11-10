@@ -2,6 +2,8 @@
     padding: 0 20px;
     height: 64px;
     background-color: #131824;
+    position: relative;
+    z-index: 100;
 }
 
 .container {
