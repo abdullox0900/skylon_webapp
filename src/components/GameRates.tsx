@@ -151,18 +151,37 @@ export default function GameRates({ gameId }: GameRatesProps) {
           </div>
           <div className={styles.tabsFade} aria-hidden="true" />
         </div>
-        <div
-          className={`${styles.limitSelectorButton}`}
-          onClick={() => setShowDropdown(!showDropdown)}
-        >
-          <span>{limit}</span>
-          <Image
-            src="/assets/GameGrid/arrow_buttons.svg"
-            alt="arrow"
-            width={12}
-            height={12}
-            className={`${styles.dropdownIcon} ${showDropdown ? styles.open : ""}`}
-          />
+        <div className={styles.limitSelectorContainer}>
+          <div
+            className={`${styles.limitSelectorButton}`}
+            onClick={() => setShowDropdown(!showDropdown)}
+          >
+            <span>{limit}</span>
+            <Image
+              src="/assets/GameGrid/arrow_buttons.svg"
+              alt="arrow"
+              width={12}
+              height={12}
+              className={`${styles.dropdownIcon} ${showDropdown ? styles.open : ""}`}
+            />
+          </div>
+          {showDropdown && (
+            <div className={`${styles.limitDropdown}`}>
+              {limits.map((val) => (
+                <div
+                  key={val}
+                  className={`${styles.limitOption} ${limit === val ? styles.selected : ""}`}
+                  onClick={() => {
+                    setLimit(val);
+                    setShowDropdown(false);
+                    log.info("Limit changed", { op_id: opId, newLimit: val });
+                  }}
+                >
+                  {val}
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
 
@@ -186,27 +205,6 @@ export default function GameRates({ gameId }: GameRatesProps) {
           )}
         </div>
       </div>
-      <div className={styles.limitSelectorContainer}>
-      
-
-      {showDropdown && (
-        <div className={`${styles.limitDropdown}`}>
-          {limits.map((val) => (
-            <div
-              key={val}
-              className={`${styles.limitOption} ${limit === val ? styles.selected : ""}`}
-              onClick={() => {
-                setLimit(val);
-                setShowDropdown(false);
-                log.info("Limit changed", { op_id: opId, newLimit: val });
-              }}
-            >
-              {val}
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
      
     </div>
   );

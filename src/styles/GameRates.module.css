@@ -245,8 +245,7 @@
 
 .limitSelectorContainer {
     position: relative;
-    margin-top: 10px;
-    margin-left: auto;
+    flex-shrink: 0;
     z-index: 10;
 }
 
@@ -274,8 +273,8 @@
 
 .limitDropdown {
     position: absolute;
-    bottom: calc(100% + 90px);
-    right: 10%;
+    top: calc(100% + 8px);
+    right: 0;
     width: 75px;
     max-height: 240px;
     overflow-y: auto;
