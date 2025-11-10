@@ -5,7 +5,6 @@ import styles from "@/styles/GameStats.module.css";
 import { useAPI } from "@/context/APIContext";
 import { useUser } from "@/context/UserContext";
 import { createLogger } from "@/utils/logger";
-import Image from "next/image";
 import Loading from "./Loading";
 
 interface PlayerStat {
@@ -149,7 +148,17 @@ export default function GameStats({ gameId }: GameStatsProps) {
             {item ? (
               <div className={styles.placesWrap}>
                <div className={styles.placesImaga}>
-                 <Image className={styles.placesAvatar} src={item?.user_avatar_url || '/game-stats-oval.svg'} width={44} height={44} alt="user-img" />
+                 <img 
+                   className={styles.placesAvatar} 
+                   src={item?.user_avatar_url || '/game-stats-oval.svg'} 
+                   alt="user-avatar"
+                   onError={(e) => {
+                     const target = e.target as HTMLImageElement;
+                     if (target.src !== '/game-stats-oval.svg') {
+                       target.src = '/game-stats-oval.svg';
+                     }
+                   }}
+                 />
                </div>
                <div className={styles.nameWrapper}>
                   <div className={styles.placesName}>
