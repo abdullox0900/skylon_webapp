@@ -143,19 +143,19 @@ export default function GameStats({ gameId }: GameStatsProps) {
           >
             
             {item ? (
-              <>
+              <div className={styles.placesWrap}>
                <div className={styles.placesImaga}>
                  {/* <Image src={''} width={44} height={44} alt="user-img" /> */}
                </div>
                <div className={styles.nameWrapper}>
-                  <div className={styles.placesWrap}>
+                  <div className={styles.placesName}>
                     {item.is_hidden === 1 ? "Аноним" : item.user_name}
                   </div>
                 </div>
                 <div className={styles.placesAmount}>
                   {item.payout.toLocaleString()} ₽
                 </div>
-              </>
+              </div>
             ) : (
               <div className={styles.placesWrap}>
                 <div className={styles.placesImaga}></div>
