@@ -68,6 +68,7 @@ export interface BigWin {
   is_hidden: number;
   payout: number;
   date: number;
+  user_avatar_url?: string | null;
 }
 
 export interface BigWinsResponse {
@@ -81,6 +82,7 @@ export interface LuckyBet {
   average_payout: number;
   bet_count: number;
   date: number;
+  user_avatar_url?: string | null;
 }
 
 export interface LuckyBetsResponse {
@@ -94,6 +96,7 @@ export interface TopPlayerToday {
   total_bet: number;
   bet_count: number;
   date: number;
+  user_avatar_url?: string | null;
 }
 
 export interface TopPlayersTodayResponse {

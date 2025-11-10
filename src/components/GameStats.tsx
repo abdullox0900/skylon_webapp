@@ -14,7 +14,7 @@ interface PlayerStat {
   is_hidden: number;
   payout: number;
   date?: number;
-  user_avatar_url?: string;
+  user_avatar_url?: string | null;
 }
 
 interface GameStatsProps {
@@ -61,6 +61,7 @@ export default function GameStats({ gameId }: GameStatsProps) {
           is_hidden: item.is_hidden,
           payout: item.payout,
           date: item.date,
+          user_avatar_url: item.user_avatar_url || undefined,
         }));
       } else if (tab === "lucky_bets") {
         const apiResult = await client.getLuckyBets(gameId, 10, user?.id);
@@ -70,6 +71,7 @@ export default function GameStats({ gameId }: GameStatsProps) {
           is_hidden: item.is_hidden,
           payout: item.average_payout,
           date: item.date,
+          user_avatar_url: item.user_avatar_url || undefined,
         }));
       } else {
         const apiResult = await client.getTopPlayersToday(gameId, 10, user?.id);
@@ -79,6 +81,7 @@ export default function GameStats({ gameId }: GameStatsProps) {
           is_hidden: item.is_hidden,
           payout: item.total_bet,
           date: item.date,
+          user_avatar_url: item.user_avatar_url || undefined,
         }));
       }
 
