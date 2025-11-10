@@ -182,26 +182,26 @@ export class SkylonAPIClient {
     return await this.proxy("GET", "/slotegrator/statistics/my_bets_list", null, { user_id: userId, game_uuid: gameUuid, limit });
   }
 
-  async getTotalBets(gameUuid?: string, limit = 10): Promise<TransactionEntry[]> {
-    return await this.proxy("GET", "/slotegrator/statistics/total_bets_list", null, { game_uuid: gameUuid, limit });
+  async getTotalBets(gameUuid?: string, limit = 10, userId?: number): Promise<TransactionEntry[]> {
+    return await this.proxy("GET", "/slotegrator/statistics/total_bets_list", null, { game_uuid: gameUuid, limit, user_id: userId });
   }
 
-  async getHighBetPlayers(gameUuid?: string, limit = 10): Promise<TransactionEntry[]> {
-    return await this.proxy("GET", "/slotegrator/statistics/high_bets_list", null, { game_uuid: gameUuid, limit });
+  async getHighBetPlayers(gameUuid?: string, limit = 10, userId?: number): Promise<TransactionEntry[]> {
+    return await this.proxy("GET", "/slotegrator/statistics/high_bets_list", null, { game_uuid: gameUuid, limit, user_id: userId });
   }
 
-  async getBigWins(gameUuid: string, limit = 10): Promise<BigWin[]> {
-    const result = await this.proxy<BigWinsResponse>("GET", "/slotegrator/statistics/game/big_wins", null, { game_uuid: gameUuid, limit });
+  async getBigWins(gameUuid: string, limit = 10, userId?: number): Promise<BigWin[]> {
+    const result = await this.proxy<BigWinsResponse>("GET", "/slotegrator/statistics/game/big_wins", null, { game_uuid: gameUuid, limit, user_id: userId });
     return result.big_wins;
   }
 
-  async getLuckyBets(gameUuid: string, limit = 10): Promise<LuckyBet[]> {
-    const result = await this.proxy<LuckyBetsResponse>("GET", "/slotegrator/statistics/game/lucky_bets", null, { game_uuid: gameUuid, limit });
+  async getLuckyBets(gameUuid: string, limit = 10, userId?: number): Promise<LuckyBet[]> {
+    const result = await this.proxy<LuckyBetsResponse>("GET", "/slotegrator/statistics/game/lucky_bets", null, { game_uuid: gameUuid, limit, user_id: userId });
     return result.lucky_bets;
   }
 
-  async getTopPlayersToday(gameUuid: string, limit = 10): Promise<TopPlayerToday[]> {
-    const result = await this.proxy<TopPlayersTodayResponse>("GET", "/slotegrator/statistics/game/top_players_today", null, { game_uuid: gameUuid, limit });
+  async getTopPlayersToday(gameUuid: string, limit = 10, userId?: number): Promise<TopPlayerToday[]> {
+    const result = await this.proxy<TopPlayersTodayResponse>("GET", "/slotegrator/statistics/game/top_players_today", null, { game_uuid: gameUuid, limit, user_id: userId });
     return result.top_players_today;
   }
 

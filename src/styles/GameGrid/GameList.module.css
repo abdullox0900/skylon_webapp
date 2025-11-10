@@ -109,8 +109,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #131824;
-    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    /* border-radius: 10px; */
     z-index: 100;
     pointer-events: none;
     min-height: 200px;

@@ -53,7 +53,7 @@ function TableRow({ bet }: { bet: TransactionEntry }) {
           href={`/game/${bet.game_uuid}`}
           className={`${styles.slotLink} ${slotOverflow ? styles.needsMask : ""}`}
         >
-          {bet.slot_name || "Без названия"}
+          {bet.slot_name.length > 13 ? bet.slot_name.slice(0, 13) + "..." : bet.slot_name || "Без названия"}
         </Link>
       </span>
       </div>
@@ -92,9 +92,9 @@ export default function GameRates({ gameId }: GameRatesProps) {
         if (tab === "my") {
           result = await client.getMyBets(user.id, gameId, limit);
         } else if (tab === "all") {
-          result = await client.getTotalBets(gameId, limit);
+          result = await client.getTotalBets(gameId, limit, user.id);
         } else if (tab === "high") {
-          result = await client.getHighBetPlayers(gameId, limit);
+          result = await client.getHighBetPlayers(gameId, limit, user.id);
         }
 
         setBets(result);
@@ -200,7 +200,7 @@ export default function GameRates({ gameId }: GameRatesProps) {
         <div className={styles.tableBody}>
           {loading && (
             <div className={styles.loadingWrapper}>
-                <Loading size={100} backgroundColor="#131824" logoScale={0.50} />
+                <Loading size={100} backgroundColor="transparent" logoScale={0.50} />
             </div>
           )}
 

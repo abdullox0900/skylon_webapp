@@ -251,7 +251,7 @@ export default function GameCard({ gameId, opId }: GameCardProps) {
 
       {isLoading && (
         <div className={styles.loadingOverlay}>
-            <Loading size={100} backgroundColor="#131824" logoScale={0.50} />
+            <Loading size={100} backgroundColor="transparent" logoScale={0.50} />
         </div>
       )}
 

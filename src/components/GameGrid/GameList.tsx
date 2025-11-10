@@ -94,7 +94,7 @@ export default function GameList({
 
           {isReloading && (
             <div className={styles.gridOverlay}>
-                <Loading size={100} backgroundColor="#131824" logoScale={0.50} />
+                <Loading size={100} backgroundColor="transparent" logoScale={0.50} />
             </div>
           )}
         </div>

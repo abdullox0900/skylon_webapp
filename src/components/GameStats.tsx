@@ -31,7 +31,7 @@ const tabLabels: Record<StatTab, string> = {
 
 export default function GameStats({ gameId }: GameStatsProps) {
   const { client } = useAPI();
-  const { profileChanged, setProfileChanged } = useUser();
+  const { user, profileChanged, setProfileChanged } = useUser();
   const [activeTab, setActiveTab] = useState<StatTab>("big_wins");
   const [data, setData] = useState<Record<StatTab, PlayerStat[]>>({
     big_wins: [],
@@ -54,7 +54,7 @@ export default function GameStats({ gameId }: GameStatsProps) {
       let result: PlayerStat[] = [];
 
       if (tab === "big_wins") {
-        const apiResult = await client.getBigWins(gameId);
+        const apiResult = await client.getBigWins(gameId, 10, user?.id);
         result = apiResult.map((item) => ({
           user_id: item.user_id,
           user_name: item.user_name,
@@ -63,7 +63,7 @@ export default function GameStats({ gameId }: GameStatsProps) {
           date: item.date,
         }));
       } else if (tab === "lucky_bets") {
-        const apiResult = await client.getLuckyBets(gameId);
+        const apiResult = await client.getLuckyBets(gameId, 10, user?.id);
         result = apiResult.map((item) => ({
           user_id: item.user_id,
           user_name: item.user_name,
@@ -72,7 +72,7 @@ export default function GameStats({ gameId }: GameStatsProps) {
           date: item.date,
         }));
       } else {
-        const apiResult = await client.getTopPlayersToday(gameId);
+        const apiResult = await client.getTopPlayersToday(gameId, 10, user?.id);
         result = apiResult.map((item) => ({
           user_id: item.user_id,
           user_name: item.user_name,
@@ -150,7 +150,7 @@ export default function GameStats({ gameId }: GameStatsProps) {
                </div>
                <div className={styles.nameWrapper}>
                   <div className={styles.placesName}>
-                    {item.is_hidden === 1 ? "Аноним" : item.user_name.length > 10 ? item.user_name.slice(0, 10) + "..." : item.user_name}
+                    {item.is_hidden === 1 ? "Аноним" : item.user_name.length > 7 ? item.user_name.slice(0, 7) + "..." : item.user_name}
                   </div>
                 </div>
                 <div className={styles.placesAmount}>
@@ -199,7 +199,7 @@ export default function GameStats({ gameId }: GameStatsProps) {
       <div className={styles.statsBody}>
         {isLoading && (
           <div className={styles.loadingWrapper}>
-            <Loading size={100} backgroundColor="#131824" logoScale={0.50} />
+            <Loading size={100} backgroundColor="transparent" logoScale={0.50} />
           </div>
         )}
         {renderRow(data[activeTab])}
