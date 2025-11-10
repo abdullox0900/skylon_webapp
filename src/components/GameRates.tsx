@@ -74,13 +74,24 @@ export default function GameRates({ gameId }: GameRatesProps) {
   const [loading, setLoading] = useState<boolean>(false);
   const [limit, setLimit] = useState<number>(10);
   const [showDropdown, setShowDropdown] = useState<boolean>(false);
+  const tableBodyRef = useRef<HTMLDivElement>(null);
 
   const log = useRef(createLogger("GameRates")).current;
   const opId = useRef(globalThis.crypto?.randomUUID?.() ?? Math.random().toString(36).slice(2)).current;
 
+  // Scroll to top and clear bets when tab or limit changes
+  useEffect(() => {
+    if (tableBodyRef.current) {
+      tableBodyRef.current.scrollTop = 0;
+    }
+    // Clear bets immediately when switching tabs to show loading faster
+    setBets([]);
+  }, [tab, limit]);
+
   useEffect(() => {
     const fetchData = async () => {
       if (!client || !user) return;
+      
       setLoading(true);
       const fetchStart = performance.now();
 
@@ -197,7 +208,7 @@ export default function GameRates({ gameId }: GameRatesProps) {
           <span>Выплата</span>
         </div>
 
-        <div className={styles.tableBody}>
+        <div className={styles.tableBody} ref={tableBodyRef}>
           {loading && (
             <div className={styles.loadingWrapper}>
                 <Loading size={100} backgroundColor="transparent" logoScale={0.50} />

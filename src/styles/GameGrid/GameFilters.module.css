@@ -114,9 +114,24 @@
     letter-spacing: 0px;
     color: #F0F5FF;
     outline: none;
-    position: relative;
     border: none;
     background-color: #212738;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    touch-action: manipulation;
+}
+
+.filterButton:focus {
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.filterButton:active {
+    -webkit-tap-highlight-color: transparent;
 }
 
 .filterButton:hover {
@@ -168,7 +183,7 @@
 .sortMenu label {
     padding: 10px 16px;
     cursor: pointer;
-    color: #f0f0f0;
+    /* color: #f0f0f0; */
     font-size: 13px;
     font-family: "Onest", sans-serif;
     font-weight: 700;
@@ -187,6 +202,12 @@
     gap: 8px;
     outline: none;
     -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    touch-action: manipulation;
     white-space: normal;
     text-align: left;
     line-height: 1.3;
@@ -195,6 +216,15 @@
     word-break: break-word;
     white-space: normal;
     flex: 1;
+}
+
+.sortMenu label:focus {
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.sortMenu label:active {
+    -webkit-tap-highlight-color: transparent;
 }
 
 .sortMenu label span {
@@ -223,6 +253,21 @@
     box-sizing: border-box;
     outline: none;
     -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    touch-action: manipulation;
+}
+
+.sortMenu div:focus {
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.sortMenu div:active {
+    -webkit-tap-highlight-color: transparent;
 }
 
 .sortMenu .activeOption {
@@ -239,6 +284,30 @@
     box-sizing: border-box;
     word-break: break-word;
     outline: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    touch-action: manipulation;
+}
+
+.providerItem:focus {
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.providerItem:active {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.providerItem input[type="checkbox"]:focus {
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.providerItem input[type="checkbox"]:active {
     -webkit-tap-highlight-color: transparent;
 }
 

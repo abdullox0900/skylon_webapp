@@ -21,7 +21,7 @@
     flex-shrink: 0;
     border: none;
     color: inherit;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.1;
     text-align: center;
     white-space: nowrap;
@@ -32,15 +32,15 @@
     outline: none;
     -webkit-tap-highlight-color: transparent;
     background: transparent;
-    transition: background 0.2s ease, color 0.2s ease;
+    transition: background 0.5s ease, color 0.5s ease;
 }
 
 
-.tabButton {
-    height: 39px;
-    padding: 10px 16px;
+.tabs button {
+    padding: 10px 16px !important;
     border-radius: 10px;
-    font-size: 16px;
+    font-weight: 600;
+    font-size: 14px !important;
 }
 
 .tabBox {
@@ -50,7 +50,7 @@
     position: relative;
     overflow-x: auto;
     overflow-y: hidden;
-    padding: 8px;
+    padding: 8px !important;
     background-color: #131824;
     border-radius: 16px;
     gap: 8px;
@@ -79,7 +79,7 @@
     position: relative;
     background: #212738 !important;
     color: #ffffff !important;
-    font-weight: 700;
+    font-weight: 600;
     overflow: visible;
 }
 

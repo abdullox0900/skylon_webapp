@@ -97,7 +97,7 @@
     position: relative;
     background: #212738 !important;
     color: #ffffff !important;
-    font-weight: 700;
+    font-weight: 600;
     overflow: visible;
 }
 
@@ -355,8 +355,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: transparent;
-    z-index: 2;
+    background: #131824;
+    z-index: 10;
     gap: 8px;
     transition: background 0.3s ease;
     font-family: Onest, sans-serif;
@@ -368,6 +368,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    min-height: 300px;
 }
 
 .loadingIcon {
