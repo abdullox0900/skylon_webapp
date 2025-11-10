@@ -187,11 +187,11 @@
 }
 
 .payoutWin {
-    color: rgba(74, 189, 77, 1);
+    color: #18F24E;
 }
 
 .payoutLoss {
-    color: rgba(189, 74, 76, 1);
+    color: #727E9B;
 }
 
 .slotName {
@@ -339,11 +339,8 @@
     position: relative;
     max-height: 350px;
     overflow-y: scroll;
-    /* Hide scrollbars but keep scrolling */
     scrollbar-width: none;
-    /* Firefox */
     -ms-overflow-style: none;
-    /* IE 10+ */
     -webkit-overflow-scrolling: touch;
 }
 
