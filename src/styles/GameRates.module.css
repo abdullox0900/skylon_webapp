@@ -59,8 +59,11 @@
     background-color: #131824;
     border-radius: 16px;
     gap: 8px;
-    scrollbar-width: thin;
-    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+    /* Hide scrollbars but keep scrolling */
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE 10+ */
     -webkit-overflow-scrolling: touch;
 }
 
@@ -114,20 +117,11 @@
 }
 
 .tabBox::-webkit-scrollbar {
-    height: 4px;
-}
-
-.tabBox::-webkit-scrollbar-track {
+    display: none;
+    /* Chrome/Safari */
+    width: 0;
+    height: 0;
     background: transparent;
-}
-
-.tabBox::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 2px;
-}
-
-.tabBox::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.3);
 }
 
 .table {
@@ -136,18 +130,34 @@
     border-radius: 12px;
 }
 
-.tableHeader,
-.tableRow {
+.tableHeader {
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 16px;
     line-height: 100%;
-
     padding: 10px 16px;
     background-color: #212738;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
+}
+
+.slotOne {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.slotImage {
+    width: 15px;
+    height: 19px;
+    border-radius: 2px;
+    background-color: #202738;
+}
+
+.tableRow {
+    padding: 10px 16px;
+
 }
 
 .tableHeader {
@@ -222,9 +232,10 @@
 .loading,
 .emptyState {
     text-align: center;
-    padding: 20px;
-    color: #ccc;
-    font-size: 12px;
+    padding: 30px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
 }
 
 .limitSelectorContainer {
@@ -258,7 +269,7 @@
 
 .limitDropdown {
     position: absolute;
-    bottom: calc(100% + 65px);
+    bottom: calc(100% + 90px);
     right: 10%;
     width: 75px;
     max-height: 240px;
@@ -333,8 +344,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: rgba(0, 17, 44, 0.7);
-    border-radius: 30px;
+    background: #131824;
+    border-radius: 10px;
     z-index: 2;
     gap: 8px;
     transition: background 0.3s ease;

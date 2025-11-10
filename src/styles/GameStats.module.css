@@ -54,8 +54,11 @@
     background-color: #131824;
     border-radius: 16px;
     gap: 8px;
-    scrollbar-width: thin;
-    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+    /* Hide scrollbars but keep scrolling */
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE 10+ */
     -webkit-overflow-scrolling: touch;
     box-sizing: border-box;
 }
@@ -97,20 +100,11 @@
 }
 
 .tabBox::-webkit-scrollbar {
-    height: 4px;
-}
-
-.tabBox::-webkit-scrollbar-track {
+    display: none;
+    /* Chrome/Safari */
+    width: 0;
+    height: 0;
     background: transparent;
-}
-
-.tabBox::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 2px;
-}
-
-.tabBox::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.3);
 }
 
 .statsRow {
@@ -254,8 +248,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: rgba(0, 0, 0, 1);
-    border-radius: 30px;
+    background: #131824;
+    border-radius: 10px;
     z-index: 2;
     gap: 8px;
     font-family: "Onest", sans-serif;
@@ -289,8 +283,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 30px;
+    background: #131824;
+    border-radius: 10px;
     z-index: 2;
     gap: 8px;
     transition: background 0.3s ease;

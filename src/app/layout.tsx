@@ -29,7 +29,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <APIProvider>
           <UserProvider>
-            <AppInit>{children}</AppInit>
+              <AppInit>
+              {children}
+              </AppInit>
           </UserProvider>
         </APIProvider>
       </body>

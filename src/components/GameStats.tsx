@@ -6,6 +6,7 @@ import { useAPI } from "@/context/APIContext";
 import { useUser } from "@/context/UserContext";
 import { createLogger } from "@/utils/logger";
 import Image from "next/image";
+import Loading from "./Loading";
 
 interface PlayerStat {
   user_id: number;
@@ -154,21 +155,6 @@ export default function GameStats({ gameId }: GameStatsProps) {
                 <div className={styles.placesAmount}>
                   {item.payout.toLocaleString()} ₽
                 </div>
-               
-                {/* <div className={styles.date}>
-                  {item.date
-                    ? activeTab === "top_today"
-                      ? new Date(item.date * 1000).toLocaleTimeString("ru-RU", {
-                          hour: "2-digit",
-                          minute: "2-digit",
-                        })
-                      : new Date(item.date * 1000).toLocaleDateString("ru-RU", {
-                          day: "2-digit",
-                          month: "long",
-                          year: "numeric",
-                        })
-                    : "—"}
-                </div> */}
               </>
             ) : (
               <div className={styles.placesWrap}>
@@ -212,7 +198,7 @@ export default function GameStats({ gameId }: GameStatsProps) {
       <div className={styles.statsBody}>
         {isLoading && (
           <div className={styles.loadingWrapper}>
-            <span>Загрузка...</span>
+            <Loading size={100} backgroundColor="#131824" logoScale={0.50} />
           </div>
         )}
         {renderRow(data[activeTab])}

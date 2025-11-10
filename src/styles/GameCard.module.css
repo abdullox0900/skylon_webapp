@@ -3,7 +3,7 @@
     flex-direction: column;
     box-sizing: border-box;
     gap: 14px;
-    /* min-height: 340px; */
+    min-height: 340px;
     position: relative;
     transition: min-height 0.2s ease;
 }
@@ -257,11 +257,11 @@
     right: 0;
     bottom: 0;
     backdrop-filter: blur(1px);
-    background: rgba(0, 0, 0, 0.2);
+    background: #131824;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 26px;
+    border-radius: 10px;
     z-index: 5;
 }
 

@@ -9,6 +9,7 @@ import { useUser } from "@/context/UserContext";
 import type { GameDetails } from "@/types/api_client";
 import { createLogger } from "@/utils/logger";
 import ModalPortal from "@/components/ModalPortal";
+import Loading from "./Loading";
 
 interface GameCardProps {
   gameId: string;
@@ -163,169 +164,96 @@ export default function GameCard({ gameId, opId }: GameCardProps) {
       className={`${styles.container} ${`${styles.gameCardWrap}`} `}
     >
       {gameInfo && (
-        <>
-          <div className={styles.topBlock}>
-            <div className={`${styles.imageWrapper}`}>
-              <img
-                src={gameInfo.image || "/placeholder.jpg"}
-                alt={gameInfo.name}
-                className={styles.slotImage}
-                loading="eager"
-                decoding="async"
-              />
-            </div>
-
-            <div className={styles.details}>
-              <div className={styles.name}>{gameInfo.name}</div>
-              <div className={styles.provider}>
-                {gameInfo.provider?.label || gameInfo.provider?.provider || ""}
-              </div>
-
-              <button
-                className={`${styles.favoriteBtn} ${
-                  animatingFavorite ? styles.animating : ""
-                }`}
-                onClick={handleFavoriteToggle}
-                disabled={isLoading}
-              >
-                <img
-                  src={
-                    gameInfo.is_favorite
-                      ? "/assets/GameCard/favorite_active_card.svg"
-                      : "/assets/GameCard/favorite_card.svg"
-                  }
-                  alt="Избранное"
-                />
-              </button>
-            </div>
-          </div>
-
-          <div className={styles.fullscreenToggle}>
+         <>
+         <div className={styles.topBlock}>
+           <div className={`${styles.imageWrapper}`}>
+               <img
+                 // src={gameInfo.image || "/placeholder.jpg"}
+                 // alt={gameInfo.name}
+                 className={styles.slotImage}
+                 loading="eager"
+                 decoding="async"
+               />
+           </div>
+ 
+           <div className={styles.details}>
+             {/* <div className={styles.name}>{gameInfo.name}}</div> */}
+             <div className={styles.provider}>
+             {/* {gameInfo.provider?.label || gameInfo.provider?.provider || ""} */}
+             </div>
+ 
+            <div className={styles.favoriteBtnWrap}>
             <button
-              className={`${styles.toggleSwitch} ${
-                animatingSwitch ? styles.animating : ""
-              }`}
-              onClick={handleSwitchToggle}
-              disabled={isLoading}
-              aria-pressed={fullscreen}
-            >
-              <span
-                className={`${styles.toggleVisual} ${
-                  fullscreen ? styles.toggleOn : ""
-                }`}
-              >
-                <span className={styles.toggleThumb} />
-              </span>
-            </button>
-            <span>Играть в полноэкранном режиме</span>
-          </div>
-
-          <div className={styles.buttonGroup}>
-            <button
-              className={`${styles.playButton} ${skins.blueGlowSkin}`}
-              onClick={() => handleModeSelect("normal")}
-              disabled={isLoading}
-            >
-              Играть
-            </button>
-            {(gameInfo?.provider?.supports_demo ?? true) && (
-              <button
-                className={styles.demoButton}
-                onClick={() => handleModeSelect("demo")}
-                disabled={isLoading}
-              >
-                Демо
-              </button>
-            )}
-          </div>
-        </>
+               className={`${styles.favoriteBtn} ${
+                 animatingFavorite ? styles.animating : ""
+               }`}
+               onClick={handleFavoriteToggle}
+               disabled={isLoading}
+             >
+               <img
+                   src={
+                     // gameInfo.is_favorite
+                       // "/assets/GameCard/favorite_active_card.svg"
+                       "/assets/GameCard/favorite_card.svg"
+                   }
+                   alt="Избранное"
+                 />
+                 
+             </button>
+            </div>
+             
+             <div className={styles.favoriteBtn}>
+             <div className={styles.fullscreenToggle}>
+                 <button
+                   className={`${styles.toggleSwitch} ${
+                     animatingSwitch ? styles.animating : ""
+                   }`}
+                   onClick={handleSwitchToggle}
+                   disabled={isLoading}
+                   aria-pressed={fullscreen}
+                 >
+                   <span
+                     className={`${styles.toggleVisual} ${
+                       fullscreen ? styles.toggleOn : ""
+                     }`}
+                   >
+                     <span className={styles.toggleThumb} />
+                   </span>
+                 </button>
+                 <span className={styles.toggleSwitchText}>Полный экран</span>
+               </div>
+             </div>
+           </div>
+         </div>
+ 
+         <div className={styles.buttonGroup}>
+           <button
+             className={`${styles.playButton}`}
+             onClick={() => handleModeSelect("normal")}
+             disabled={isLoading}
+           >
+             Играть
+           </button>
+           {(gameInfo?.provider?.supports_demo ?? true) && (
+             <button
+               className={styles.demoButton}
+               onClick={() => handleModeSelect("demo")}
+               disabled={isLoading}
+             >
+               Демо
+             </button>
+           )}
+         </div>
+       </>
       )}
 
-      <>
-        <div className={styles.topBlock}>
-          <div className={`${styles.imageWrapper}`}>
-            <img
-              src={"/assets/game-card-img.png"}
-              // alt={gameInfo.name}
-              className={styles.slotImage}
-              loading="eager"
-              decoding="async"
-            />
-          </div>
+    
 
-          <div className={styles.details}>
-            <div className={styles.name}>{"Zeus vs Hades: Gods of War"}</div>
-            <div className={styles.provider}>Pragmatic Play</div>
-
-           <div className={styles.favoriteBtnWrap}>
-           <button
-              className={`${styles.favoriteBtn} ${
-                animatingFavorite ? styles.animating : ""
-              }`}
-              onClick={handleFavoriteToggle}
-              disabled={isLoading}
-            >
-              <img
-                  src={
-                    // gameInfo.is_favorite
-                      // "/assets/GameCard/favorite_active_card.svg"
-                      "/assets/GameCard/favorite_card.svg"
-                  }
-                  alt="Избранное"
-                />
-                
-            </button>
-           </div>
-            
-            <div className={styles.favoriteBtn}>
-            <div className={styles.fullscreenToggle}>
-                <button
-                  className={`${styles.toggleSwitch} ${
-                    animatingSwitch ? styles.animating : ""
-                  }`}
-                  onClick={handleSwitchToggle}
-                  disabled={isLoading}
-                  aria-pressed={fullscreen}
-                >
-                  <span
-                    className={`${styles.toggleVisual} ${
-                      fullscreen ? styles.toggleOn : ""
-                    }`}
-                  >
-                    <span className={styles.toggleThumb} />
-                  </span>
-                </button>
-                <span className={styles.toggleSwitchText}>Полный экран</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className={styles.buttonGroup}>
-          <button
-            className={`${styles.playButton}`}
-            onClick={() => handleModeSelect("normal")}
-            disabled={isLoading}
-          >
-            Играть
-          </button>
-          {(gameInfo?.provider?.supports_demo ?? true) && (
-            <button
-              className={styles.demoButton}
-              onClick={() => handleModeSelect("demo")}
-              disabled={isLoading}
-            >
-              Демо
-            </button>
-          )}
-        </div>
-      </>
-
-      {/* {isLoading && (
+      {isLoading && (
         <div className={styles.loadingOverlay}>
-          
+            <Loading size={100} backgroundColor="#131824" logoScale={0.50} />
         </div>
-      )} */}
+      )}
 
       {showBlockNotice && (
         <ModalPortal>

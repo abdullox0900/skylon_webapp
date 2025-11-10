@@ -142,7 +142,7 @@ export default function AppInit({ children }: { children: React.ReactNode }) {
         router.replace("/games");
       }
     })();
-  }, [client, pathname, router, setUser, log]);
+  }, [client, pathname, , setUser, log]);
 
   if (loading) return <BrandedLoading />;
   return <>{children}</>;

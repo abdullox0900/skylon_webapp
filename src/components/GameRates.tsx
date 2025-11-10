@@ -9,6 +9,7 @@ import type { TransactionEntry } from "@/types/api_client";
 import skins from "@/styles/skins.module.css";
 import Image from "next/image";
 import { createLogger } from "@/utils/logger";
+import Loading from "./Loading";
 
 type TabType = "my" | "all" | "high";
 
@@ -36,15 +37,8 @@ function TableRow({ bet }: { bet: TransactionEntry }) {
 
   return (
     <div className={styles.tableRow}>
-      <span>
-        <div
-          ref={userRef}
-          className={`${styles.userNameCell} ${userOverflow ? styles.needsMask : ""}`}
-        >
-          {bet.user_name || `Игрок #${bet.user_id}`}
-        </div>
-      </span>
-
+      <div className={styles.slotOne}>
+      <div className={styles.slotImage}></div>
       <span className={styles.slotName}>
         <Link
           ref={slotRef}
@@ -54,6 +48,7 @@ function TableRow({ bet }: { bet: TransactionEntry }) {
           {bet.slot_name || "Без названия"}
         </Link>
       </span>
+      </div>
 
       <span className={bet.amount >= 0 ? styles.payoutWin : styles.payoutLoss}>
         {bet.amount >= 0 ? "+" : "-"} {Math.abs(bet.amount).toLocaleString()} ₽
@@ -178,14 +173,7 @@ export default function GameRates({ gameId }: GameRatesProps) {
         <div className={styles.tableBody}>
           {loading && (
             <div className={styles.loadingWrapper}>
-              <Image
-                src="/assets/spinner.svg"
-                alt="Загрузка"
-                className={styles.loadingIcon}
-                width={36}
-                height={36}
-              />
-              <span>Загрузка...</span>
+                <Loading size={100} backgroundColor="#131824" logoScale={0.50} />
             </div>
           )}
 
@@ -200,7 +188,7 @@ export default function GameRates({ gameId }: GameRatesProps) {
       
 
       {showDropdown && (
-        <div className={`${styles.limitDropdown} ${skins.darkblueSkin}`}>
+        <div className={`${styles.limitDropdown}`}>
           {limits.map((val) => (
             <div
               key={val}
