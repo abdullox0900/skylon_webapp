@@ -9,6 +9,7 @@ import { useParams, useRouter } from "next/navigation";
 import styles from "@/styles/ComponentsGlobal.module.css";
 import { useEffect, useRef } from "react";
 import { createLogger } from "@/utils/logger";
+import SlotsBanner from "@/components/SlotsBanner";
 
 export default function GamePage() {
   const params = useParams();
@@ -73,13 +74,14 @@ export default function GamePage() {
   }
 
   return (
-    <main className={styles.main}>
+    <main >
       <Header />
+      <div className={styles.main}>
       <div className={styles.content}>
         <GameCard gameId={gameId} />
-        <ProviderCarousel />
         <GameStats gameId={gameId} />
         <GameRates gameId={gameId} />
+      </div>
       </div>
     </main>
   );

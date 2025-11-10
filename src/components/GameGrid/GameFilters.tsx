@@ -62,7 +62,7 @@ export default function GameFilters({
   return (
     <div className={styles.controls}>
       <div className={styles.topControlsRow}>
-        <div className={`${styles.searchBlock} ${skins.darkblueSkin}`}>
+        <div className={`${styles.searchBlock}`}>
           <span className={styles.searchIcon}></span>
           <input
             type="text"
@@ -84,12 +84,12 @@ export default function GameFilters({
               setShowSortMenu(!showSortMenu);
               log.debug("Sort menu toggled", { op_id: opId, opened: !showSortMenu });
             }}
-            className={`${styles.filterButton} ${skins.darkblueSkin} ${showSortMenu ? styles.active : ""}`}
+            className={`${styles.filterButton} ${showSortMenu ? styles.active : ""}`}
           >
             {sortLabel}
           </button>
           {showSortMenu && (
-            <div className={`${styles.sortMenu} ${skins.darkblueSkin}`}>
+            <div className={`${styles.sortMenu}`}>
               {(["new", "popular", "asc", "desc"] as const).map(option => (
                 <div
                   key={option}
@@ -119,12 +119,12 @@ export default function GameFilters({
               setShowProviderMenu(!showProviderMenu);
               log.debug("Provider menu toggled", { op_id: opId, opened: !showProviderMenu });
             }}
-            className={`${styles.filterButton} ${skins.darkblueSkin} ${showProviderMenu ? styles.active : ""}`}
+            className={`${styles.filterButton} ${showProviderMenu ? styles.active : ""}`}
           >
             Провайдеры
           </button>
           {showProviderMenu && (
-            <div className={`${styles.sortMenu} ${styles.providersMenu} ${skins.darkblueSkin}`}>
+            <div className={`${styles.sortMenu}`}>
               {sortedProviders.map(provider => (
                 <label key={provider.provider} className={styles.providerItem}>
                   <input

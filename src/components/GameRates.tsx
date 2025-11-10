@@ -122,7 +122,8 @@ export default function GameRates({ gameId }: GameRatesProps) {
   return (
     <div className={`${styles.container}`}>
       <div className={styles.tabs}>
-        <div className={styles.tabBox}>
+        <div className={styles.tabScrollArea}>
+          <div className={styles.tabBox}>
         <button
           className={`${styles.tabButton} ${tab === "high" ? styles.activeTab : ""}`}
           onClick={() => {
@@ -150,6 +151,8 @@ export default function GameRates({ gameId }: GameRatesProps) {
         >
           Все ставки
         </button>
+          </div>
+          <div className={styles.tabsFade} aria-hidden="true" />
         </div>
         <div
           className={`${styles.limitSelectorButton} ${skins.darkblueSkin}`}

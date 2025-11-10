@@ -91,6 +91,16 @@ export default function Header() {
         <Image src="/assets/Header/logo.svg" alt="Frosty Casino" className={styles.logoImage} width={94} height={23} />
       </div>
 
+      <div className={`${styles.headerRight}`}>
+      {user && (
+        <div className={`${styles.userCompact}`}>
+            <span className={`${styles.userBalance} ${animating ? styles.fade : ""}`}>
+              {Math.floor(user.balance || 0).toLocaleString("ru-RU")} ₽
+            </span>
+            <Image className={`${styles.userCompactIcon}`} src={'/balance-icon.svg'} width={40} height={40} alt="balance-icon" />
+        </div>
+      )}
+
       <button
         className={`${styles.incognitoBtn} ${user?.is_hidden ? styles.active : ""}`}
         onClick={(e) => {
@@ -120,28 +130,7 @@ export default function Header() {
 
         <img src="/assets/right-arrow.svg" alt="" />
       </button>
-
-      {user && (
-        <div className={`${styles.userCompact} ${skins.blueGlowSkin}`}>
-          <img
-            src={
-              user.is_hidden
-                ? "/assets/Header/default_avatar.svg"
-                : user.avatar_url || originalAvatar || "/assets/Header/default_avatar.svg"
-            }
-            alt="Avatar"
-            className={`${styles.userAvatar} ${animating ? styles.fade : ""}`}
-          />
-          <div className={styles.userTag}>
-            <span className={`${styles.userName} ${animating ? styles.fade : ""}`}>
-              @{user.is_hidden ? "Аноним" : user.name}
-            </span>
-            <span className={`${styles.userBalance} ${animating ? styles.fade : ""}`}>
-              {Math.floor(user.balance || 0).toLocaleString("ru-RU")} ₽
-            </span>
-          </div>
-        </div>
-      )}
+      </div>
     </div>
     </div>
   );

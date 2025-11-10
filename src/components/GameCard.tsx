@@ -61,7 +61,7 @@ export default function GameCard({ gameId, opId }: GameCardProps) {
         setFsAllowedGames(access.freespin_allowed_game_uuids || []);
 
         const allowedByFs = (access.freespin_allowed_game_uuids || []).includes(
-          (gameInfo?.uuid ?? gameId)
+          gameInfo?.uuid ?? gameId
         );
         const restricted = !access.can_play && !allowedByFs;
         setSlotsBlocked(restricted);
@@ -76,7 +76,11 @@ export default function GameCard({ gameId, opId }: GameCardProps) {
         });
       } catch (error) {
         if (aborted) return;
-        log.error("Failed to load game info or access", { op_id: opId, game_id: gameId, error });
+        log.error("Failed to load game info or access", {
+          op_id: opId,
+          game_id: gameId,
+          error,
+        });
       } finally {
         timeoutId = window.setTimeout(() => {
           if (!aborted) setIsLoading(false);
@@ -133,27 +137,35 @@ export default function GameCard({ gameId, opId }: GameCardProps) {
 
   const handleModeSelect = (mode: "normal" | "demo") => {
     if (mode === "normal" && slotsBlocked) {
-      log.info("Play blocked: promo without deposit", { op_id: opId, game_id: gameId });
+      log.info("Play blocked: promo without deposit", {
+        op_id: opId,
+        game_id: gameId,
+      });
       setShowBlockNotice(true);
       return;
     }
     const fullscreenFlag = fullscreen ? "1" : "0";
-    log.info("Play mode selected", { op_id: opId, game_id: gameId, mode, fullscreen });
+    log.info("Play mode selected", {
+      op_id: opId,
+      game_id: gameId,
+      mode,
+      fullscreen,
+    });
     const from = encodeURIComponent(currentPath);
     const qs = `mode=${mode}&fullscreen=${fullscreenFlag}&from=${from}`;
     router.push(`/game/${gameId}/play?${qs}`);
   };
-
+  // ${
+  //   isLoading ? styles.dimmed : ""
+  // }
   return (
     <div
-      className={`${styles.container} ${skins.containerSkin} ${skins.containerWithPattern} ${
-        isLoading ? styles.dimmed : ""
-      }`}
+      className={`${styles.container} ${`${styles.gameCardWrap}`} `}
     >
       {gameInfo && (
         <>
           <div className={styles.topBlock}>
-            <div className={`${styles.imageWrapper} ${skins.slotBorderSkin}`}>
+            <div className={`${styles.imageWrapper}`}>
               <img
                 src={gameInfo.image || "/placeholder.jpg"}
                 alt={gameInfo.name}
@@ -195,15 +207,15 @@ export default function GameCard({ gameId, opId }: GameCardProps) {
               }`}
               onClick={handleSwitchToggle}
               disabled={isLoading}
+              aria-pressed={fullscreen}
             >
-              <img
-                src={
-                  fullscreen
-                    ? "/assets/GameCard/switch_off.svg"
-                    : "/assets/GameCard/switch_on.svg"
-                }
-                alt="Переключатель"
-              />
+              <span
+                className={`${styles.toggleVisual} ${
+                  fullscreen ? styles.toggleOn : ""
+                }`}
+              >
+                <span className={styles.toggleThumb} />
+              </span>
             </button>
             <span>Играть в полноэкранном режиме</span>
           </div>
@@ -229,15 +241,91 @@ export default function GameCard({ gameId, opId }: GameCardProps) {
         </>
       )}
 
-      {isLoading && (
-        <div className={styles.loadingOverlay}>
-          <img
-            src="/assets/spinner.svg"
-            alt="Загрузка..."
-            className={styles.spinner}
-          />
+      <>
+        <div className={styles.topBlock}>
+          <div className={`${styles.imageWrapper}`}>
+            <img
+              src={"/assets/game-card-img.png"}
+              // alt={gameInfo.name}
+              className={styles.slotImage}
+              loading="eager"
+              decoding="async"
+            />
+          </div>
+
+          <div className={styles.details}>
+            <div className={styles.name}>{"Zeus vs Hades: Gods of War"}</div>
+            <div className={styles.provider}>Pragmatic Play</div>
+
+           <div className={styles.favoriteBtnWrap}>
+           <button
+              className={`${styles.favoriteBtn} ${
+                animatingFavorite ? styles.animating : ""
+              }`}
+              onClick={handleFavoriteToggle}
+              disabled={isLoading}
+            >
+              <img
+                  src={
+                    // gameInfo.is_favorite
+                      // "/assets/GameCard/favorite_active_card.svg"
+                      "/assets/GameCard/favorite_card.svg"
+                  }
+                  alt="Избранное"
+                />
+                
+            </button>
+           </div>
+            
+            <div className={styles.favoriteBtn}>
+            <div className={styles.fullscreenToggle}>
+                <button
+                  className={`${styles.toggleSwitch} ${
+                    animatingSwitch ? styles.animating : ""
+                  }`}
+                  onClick={handleSwitchToggle}
+                  disabled={isLoading}
+                  aria-pressed={fullscreen}
+                >
+                  <span
+                    className={`${styles.toggleVisual} ${
+                      fullscreen ? styles.toggleOn : ""
+                    }`}
+                  >
+                    <span className={styles.toggleThumb} />
+                  </span>
+                </button>
+                <span className={styles.toggleSwitchText}>Полный экран</span>
+              </div>
+            </div>
+          </div>
         </div>
-      )}
+
+        <div className={styles.buttonGroup}>
+          <button
+            className={`${styles.playButton}`}
+            onClick={() => handleModeSelect("normal")}
+            disabled={isLoading}
+          >
+            Играть
+          </button>
+          {(gameInfo?.provider?.supports_demo ?? true) && (
+            <button
+              className={styles.demoButton}
+              onClick={() => handleModeSelect("demo")}
+              disabled={isLoading}
+            >
+              Демо
+            </button>
+          )}
+        </div>
+      </>
+
+      {/* {isLoading && (
+        <div className={styles.loadingOverlay}>
+          
+        </div>
+      )} */}
 
       {showBlockNotice && (
         <ModalPortal>
@@ -253,8 +341,8 @@ export default function GameCard({ gameId, opId }: GameCardProps) {
             >
               <div className={styles.blockTitle}>Доступ к слотам ограничен</div>
               <div className={styles.blockText}>
-                Промокоды без депозита работают только в TG-играх.  
-                Чтобы открыть доступ к слотам — пополните баланс.
+                Промокоды без депозита работают только в TG-играх. Чтобы открыть
+                доступ к слотам — пополните баланс.
               </div>
               <button
                 onClick={() => setShowBlockNotice(false)}

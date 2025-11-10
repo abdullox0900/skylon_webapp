@@ -15,6 +15,13 @@
     overflow: hidden;
 }
 
+.tabScrollArea {
+    position: relative;
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+}
+
 .tabs button,
 .tabButton {
     position: relative;
@@ -55,6 +62,18 @@
     scrollbar-width: thin;
     scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
     -webkit-overflow-scrolling: touch;
+}
+
+.tabsFade {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(90deg, rgba(19, 24, 36, 0) 0%, #131824 100%);
+    border-radius: 0 16px 16px 0;
+    z-index: 2;
 }
 
 /* .tabBox::before {

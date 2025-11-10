@@ -3,9 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "@/styles/GameStats.module.css";
 import { useAPI } from "@/context/APIContext";
-import skins from "@/styles/skins.module.css";
 import { useUser } from "@/context/UserContext";
 import { createLogger } from "@/utils/logger";
+import Image from "next/image";
 
 interface PlayerStat {
   user_id: number;
@@ -140,22 +140,22 @@ export default function GameStats({ gameId }: GameStatsProps) {
             key={idx}
             className={`${styles.statColumn} ${styles[`place${places[idx]}`]}`}
           >
-            <img
-              src={`/assets/GameStats/place_${places[idx]}.svg`}
-              alt={`place ${places[idx]}`}
-              className={`${styles.cupImage} ${styles[`place${places[idx]}`]}`}
-            />
+            
             {item ? (
               <>
-                <div className={styles.amount}>
-                  {item.payout.toLocaleString()} ₽
-                </div>
-                <div className={styles.nameWrapper}>
-                  <div className={styles.name}>
+               <div className={styles.placesImaga}>
+                 {/* <Image src={''} width={44} height={44} alt="user-img" /> */}
+               </div>
+               <div className={styles.nameWrapper}>
+                  <div className={styles.placesWrap}>
                     {item.is_hidden === 1 ? "Аноним" : item.user_name}
                   </div>
                 </div>
-                <div className={styles.date}>
+                <div className={styles.placesAmount}>
+                  {item.payout.toLocaleString()} ₽
+                </div>
+               
+                {/* <div className={styles.date}>
                   {item.date
                     ? activeTab === "top_today"
                       ? new Date(item.date * 1000).toLocaleTimeString("ru-RU", {
@@ -168,15 +168,21 @@ export default function GameStats({ gameId }: GameStatsProps) {
                           year: "numeric",
                         })
                     : "—"}
-                </div>
+                </div> */}
               </>
             ) : (
-              <>
-                <div className={styles.amount}>–</div>
-                <div className={styles.name}>Не занято</div>
-                <div className={styles.date}>—</div>
-              </>
+              <div className={styles.placesWrap}>
+                <div className={styles.placesImaga}></div>
+                <div className={styles.placesName}>Не занято</div>
+                <div className={styles.placesAmount}>–</div>
+              </div>
             )}
+
+            <img
+              src={`/assets/GameStats/place_${places[idx]}.svg`}
+              alt={`place ${places[idx]}`}
+              className={`${styles.cupImage} ${styles[`place${places[idx]}`]}`}
+            />
           </div>
         ))}
       </div>
@@ -184,30 +190,28 @@ export default function GameStats({ gameId }: GameStatsProps) {
   };
 
   return (
-    <div className={`${styles.container} ${skins.containerSkin} ${skins.containerWithPattern }`}>
+    <div className={`${styles.container}`}>
       <div className={styles.tabs}>
-        {Object.entries(tabLabels).map(([key, label]) => (
-          <button
-            key={key}
-            onClick={() => {
-              setActiveTab(key as StatTab);
-              log.info("Tab changed", { op_id: opId, gameId, newTab: key });
-            }}
-            className={activeTab === key ? skins.blueGlowSkin : ""}
-          >
-            {label}
-          </button>
-        ))}
+        <div className={styles.tabBox}>
+          {Object.entries(tabLabels).map(([key, label]) => (
+            <button
+              key={key}
+              onClick={() => {
+                setActiveTab(key as StatTab);
+                log.info("Tab changed", { op_id: opId, gameId, newTab: key });
+              }}
+              className={`${styles.tabButton} ${activeTab === key ? styles.activeTab : ""}`}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
+        <div className={styles.tabsFade} aria-hidden="true" />
       </div>
 
       <div className={styles.statsBody}>
         {isLoading && (
           <div className={styles.loadingWrapper}>
-            <img
-              src="/assets/spinner.svg"
-              alt="Загрузка"
-              className={styles.loadingIcon}
-            />
             <span>Загрузка...</span>
           </div>
         )}

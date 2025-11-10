@@ -1,307 +1,376 @@
 .container {
-  display: flex;
-  flex-direction: column;
-  border-radius: 26px;
-  padding: 10px;
-  box-sizing: border-box;
-  gap: 14px;
-  margin: 0 auto;
-  min-height: 340px;
-  position: relative;
-  transition: min-height 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    gap: 14px;
+    /* min-height: 340px; */
+    position: relative;
+    transition: min-height 0.2s ease;
+}
+
+.gameCardWrap {
+    position: relative;
+    padding: 16px;
+    border-radius: 16px;
+    overflow: hidden;
+    background-color: #131824;
+}
+
+.gameCardWrap::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -80px;
+    width: 100%;
+    height: 100%;
+    background-image: url('/game-card-mask.svg');
+    background-repeat: no-repeat;
+    opacity: 0.1;
+    z-index: 1;
 }
 
 .topBlock {
-  display: flex;
-  gap: 12px;
-  align-items: center;
+    display: flex;
+    gap: 16px;
 }
 
 .imageWrapper {
-  width: 50%;
-  position: relative;
-  border-radius: 20px;
-  aspect-ratio: 146 / 204;
-  overflow: hidden;
+    width: 114px;
+    height: 149px;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .slotImage {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  border-radius: 20px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .details {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 8px;
-  padding-top: 6px;
-  min-width: 0;
+    display: flex;
+    flex-direction: column;
+    max-width: 150px;
 }
 
 .name,
 .provider {
-  font-family: "Onest", sans-serif;
-  font-weight: 700;
-  line-height: 1;
+    font-family: "Onest", sans-serif;
+    font-weight: 600;
 }
 
 .name {
-  font-size: 16px;
-  color: #ffffff;
-  margin-bottom: 2px;
+    font-size: 16px;
+    color: #ffffff;
+    line-height: 140%;
+    margin-bottom: 8px;
 }
 
 .provider {
-  font-size: 14px;
-  color: rgba(194, 202, 212, 1);
-  margin-bottom: 6px;
+    font-size: 14px;
+    color: #727E9B;
+    margin-bottom: 38px;
+}
+
+.favoriteBtnWrap {
+    position: absolute;
+    top: 16px;
+    right: 16px;
 }
 
 .favoriteBtn {
-  width: 28px;
-  height: 28px;
-  margin-top: auto;
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  outline: none;
-  -webkit-tap-highlight-color: transparent;
-  z-index: 1;
+    width: 28px;
+    height: 28px;
+    margin-top: auto;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    z-index: 1;
 }
 
 .fullscreenToggle {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-family: "Onest", sans-serif;
-  font-weight: 600;
-  font-size: 14px;
-  color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: "Onest", sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: #ffffff;
 }
 
 .toggleSwitch {
-  background: transparent;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  outline: none;
-  -webkit-tap-highlight-color: transparent;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 55px;
+    height: 30px;
+    border-radius: 999px;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.toggleVisual {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 999px;
+    background: #212738;
+    display: block;
+    transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.toggleOn {
+    background: #1873F2;
+}
+
+.toggleThumb {
+    --thumb-translate: 0px;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 24px;
+    height: 24px;
+    border-radius: 999px;
+    background: #313B52;
+    transform: translateX(var(--thumb-translate));
+    transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.toggleOn .toggleThumb {
+    --thumb-translate: 26px;
+    background: #F0F5FF;
+}
+
+.toggleSwitchText {
+    font-size: 16px;
+    white-space: nowrap;
+    color: #727E9B;
+}
+
+@media (max-width: 380px) {
+    .toggleSwitchText {
+        font-size: 12px;
+    }
 }
 
 .buttonGroup {
-  display: flex;
-  gap: 10px;
-  margin-top: 4px;
+    display: flex;
+    gap: 10px;
+    margin-top: 4px;
 }
 
 .playButton,
 .demoButton {
-  width: 100%;
-  height: 44px;
-  border-radius: 26px;
-  padding: 7px 14px;
-  font-family: "Onest", sans-serif;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 24px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s ease;
-  outline: none;
-  -webkit-tap-highlight-color: transparent;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 39px;
+    border-radius: 10px;
+    padding: 10px 10px;
+    font-family: "Onest", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .playButton {
-  position: relative;
-  border: none;
-  color: #ffffff;
-  outline: none;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.playButton:active {
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-              linear-gradient(180deg, #045EBA 0%, #0571CF 100%),
-              linear-gradient(180deg, #6DD8D8 19.1%, #006DAF 106.6%);
+    position: relative;
+    border: none;
+    color: #ffffff;
+    outline: none;
+    height: 39px;
+    border-radius: 10px;
+    background-color: #1873F2;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .demoButton {
-  background: rgba(0, 17, 44, 1);
-  color: rgba(194, 202, 212, 1);
-  border: 1.5px solid rgba(126, 220, 238, 0.15);
-  outline: none;
-  -webkit-tap-highlight-color: transparent;
+    color: rgba(194, 202, 212, 1);
+    outline: none;
+    border: none;
+    background-color: #212738;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .demoButton:active {
-  border-color: rgba(255, 255, 255, 0.15);
-  box-shadow: inset 0 -9px 29.8px rgba(4, 105, 198, 0.46);
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: inset 0 -9px 29.8px rgba(4, 105, 198, 0.46);
 }
 
-.favoriteBtn img,
-.toggleSwitch img {
-  transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
+.favoriteBtn img {
+    transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
 }
 
-.favoriteBtn.animating img,
-.toggleSwitch.animating img {
-  transform: scale(1.05);
-  opacity: 0.85;
+.favoriteBtn.animating img {
+    transform: scale(1.05);
+    opacity: 0.85;
+}
+
+.toggleSwitch.animating .toggleThumb {
+    transform: translateX(var(--thumb-translate)) scale(0.95);
+    opacity: 0.9;
 }
 
 .loaderWrapper {
-  width: 100%;
-  height: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .spinner {
-  width: 36px;
-  height: 36px;
-  animation: spin 1s linear infinite;
-  opacity: 0.9;
+    width: 36px;
+    height: 36px;
+    animation: spin 1s linear infinite;
+    opacity: 0.9;
 }
 
 .dimmed {
-  position: relative;
-  opacity: 0.7;
+    position: relative;
+    opacity: 0.7;
 }
 
 .loadingOverlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  backdrop-filter: blur(1px);
-  background: rgba(0, 17, 44, 0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 26px;
-  z-index: 5;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    backdrop-filter: blur(1px);
+    background: rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 26px;
+    z-index: 5;
 }
 
 @keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .patternOverlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  pointer-events: none;
-  background-image: url("/assets/pattern.svg");
-  background-repeat: repeat;
-  background-size: 123%;
-  background-position: center;
-  opacity: 0.1;
-  z-index: 0;
-  border-radius: 26px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    background-image: url("/assets/pattern.svg");
+    background-repeat: repeat;
+    background-size: 123%;
+    background-position: center;
+    opacity: 0.1;
+    z-index: 0;
+    border-radius: 26px;
 }
 
 .playButton:hover,
 .demoButton:hover {
-  transform: scale(1.03);
-  filter: brightness(1.1);
+    transform: scale(1.03);
+    filter: brightness(1.1);
 }
 
 .playButton:active,
 .demoButton:active {
-  transform: scale(0.96);
-  filter: brightness(0.95);
+    transform: scale(0.96);
+    filter: brightness(0.95);
 }
 
 .blockOverlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 17, 44, 0.75);
-  backdrop-filter: blur(2px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 17, 44, 0.75);
+    backdrop-filter: blur(2px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
 }
 
 .blockModal {
-  background: linear-gradient(180deg, #00112c 0%, #031a3d 100%);
-  border-radius: 18px;
-  padding: 28px 22px;
-  max-width: 360px;
-  width: 90%;
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.55),
-              inset 0 0 1px rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(126, 220, 238, 0.15);
-  animation: fadeIn 0.25s ease;
+    background: linear-gradient(180deg, #00112c 0%, #031a3d 100%);
+    border-radius: 18px;
+    padding: 28px 22px;
+    max-width: 360px;
+    width: 90%;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.55),
+        inset 0 0 1px rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(126, 220, 238, 0.15);
+    animation: fadeIn 0.25s ease;
 }
 
 .blockTitle {
-  font-family: "Onest", sans-serif;
-  font-weight: 700;
-  font-size: 16px;
-  margin-bottom: 12px;
-  color: #ffffff;
-  text-align: center;
+    font-family: "Onest", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 12px;
+    color: #ffffff;
+    text-align: center;
 }
 
 .blockText {
-  font-family: "Onest", sans-serif;
-  font-size: 15px;
-  line-height: 1.45;
-  color: #c2cad4;
-  margin-bottom: 18px;
-  text-align: center;
+    font-family: "Onest", sans-serif;
+    font-size: 15px;
+    line-height: 1.45;
+    color: #c2cad4;
+    margin-bottom: 18px;
+    text-align: center;
 }
 
 .blockCloseBtn {
-  width: 80%;
-  height: 44px;
-  margin: 0 auto;
-  display: block;
-  font-family: "Onest", sans-serif;
-  font-weight: 700;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.2s ease;
+    width: 80%;
+    height: 44px;
+    margin: 0 auto;
+    display: block;
+    font-family: "Onest", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
 
 .blockCloseBtn:hover {
-  transform: scale(1.03);
-  filter: brightness(1.1);
+    transform: scale(1.03);
+    filter: brightness(1.1);
 }
 
 .blockCloseBtn:active {
-  transform: scale(0.96);
-  filter: brightness(0.95);
+    transform: scale(0.96);
+    filter: brightness(0.95);
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
