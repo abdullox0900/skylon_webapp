@@ -38,9 +38,14 @@ function TableRow({ bet }: { bet: TransactionEntry }) {
   return (
     <div className={styles.tableRow}>
       <div className={styles.slotOne}>
-      <div className={styles.slotBox}>
+      <Link
+          ref={slotRef}
+          href={`/game/${bet.game_uuid}`}
+        >
+  <div className={styles.slotBox}>
         <img className={styles.slotImg} src={bet?.slot_image_url || "/slot-box.svg"} alt="" />
-      </div>
+      </div>        </Link>
+    
       <span className={styles.slotName}>
         <Link
           ref={slotRef}
