@@ -122,7 +122,7 @@ export default function Header() {
           src={
             user?.is_hidden
               ? "/assets/Header/profile-oval.svg"
-              : "/assets/Header/profile-oval.svg"
+              :  user?.avatar_url || originalAvatar || "/assets/Header/profile-oval.svg"
           }
           alt="Инкогнито"
           className={styles.incognitoAvatar}
