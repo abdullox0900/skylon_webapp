@@ -7,10 +7,15 @@ type SlotsBannerProps = {
   className?: string;
 };
 
-export default function SlotsBanner({ title = "Слоты", className }: SlotsBannerProps) {
+export default function SlotsBanner({
+  title = "Слоты",
+  className,
+}: SlotsBannerProps) {
   return (
-    <section className={`${styles.wrap} ${className || ""}`}>
-      <h2 className={styles.title}>{title}</h2>
+    <section className={styles.bigWrap}>
+      <div className={`${styles.wrap} ${className || ""}`}>
+        <h2 className={styles.title}>{title}</h2>
+      </div>
     </section>
   );
 }

@@ -1,12 +1,17 @@
 .main {
-  display: flex;
-  flex-direction: column;
-  padding: 16px; /* Внешние отступы от краёв */
-  gap: 24px; /* Промежутки между компонентами */
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    /* Внешние отступы от краёв */
+    gap: 24px;
+    /* Промежутки между компонентами */
+    max-width: 440px;
+    margin: 0 auto;
 }
 
 .content {
-  display: flex;
-  flex-direction: column;
-  gap: 24px; /* Промежутки между GameGrid, Carousel и Rates */
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    /* Промежутки между GameGrid, Carousel и Rates */
 }

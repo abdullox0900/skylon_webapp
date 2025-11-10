@@ -41,12 +41,21 @@
     height: 23px;
 }
 
+.avatarContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+}
+
 .avatarWrap {
     width: 39px;
     height: 39px;
     border-radius: 50%;
-    cursor: pointer;
+    cursor: default;
     background-color: #212738;
+    pointer-events: none;
 }
 
 .incognitoAvatar {
@@ -66,27 +75,6 @@
     transform: scale(0.92);
 }
 
-.incognitoBtn {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: none;
-    background-color: transparent;
-}
-
-.spring {
-    animation: springPress 300ms ease-out;
-}
-
-.incognitoBtn svg {
-    width: 100%;
-    height: 100%;
-}
 
 .userCompact {
     display: flex;
@@ -152,11 +140,12 @@
     white-space: nowrap;
     height: 39px;
     padding: 10px 16px;
-    cursor: pointer;
+    cursor: default;
     padding-right: 20px;
     background-color: #212738;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
+    pointer-events: none;
 }
 
 .userCompactIcon {

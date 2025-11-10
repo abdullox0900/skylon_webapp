@@ -1,9 +1,7 @@
 "use client";
 
 import styles from "@/styles/Header.module.css";
-import skins from "@/styles/skins.module.css";
 import { useUser } from "@/context/UserContext";
-import { useAPI } from "@/context/APIContext";
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { createLogger } from "@/utils/logger";
@@ -11,11 +9,9 @@ import Image from "next/image";
 
 
 export default function Header() {
-  const { user, setUser, originalAvatar, setOriginalAvatar, setProfileChanged } = useUser();
-  const { client } = useAPI();
+  const { user, originalAvatar, setOriginalAvatar } = useUser();
   const router = useRouter();
 
-  const [loading, setLoading] = useState(false);
   const [animating, setAnimating] = useState(false);
 
   const log = useRef(createLogger("Header")).current;
@@ -33,42 +29,7 @@ export default function Header() {
       const timeout = setTimeout(() => setAnimating(false), 300);
       return () => clearTimeout(timeout);
     }
-  }, [user?.is_hidden]);
-
-  const handleToggleName = async () => {
-    if (!user || !client) return;
-    setLoading(true);
-
-    log.info("Toggle incognito mode", {
-      op_id: opId,
-      user_id: user.id,
-      current_status: user.is_hidden,
-      action: user.is_hidden ? "disable" : "enable",
-    });
-
-    try {
-      const updatedUser = await client.updateUserHiddenStatus(user.id, !user.is_hidden);
-      if (!updatedUser.is_hidden && originalAvatar) {
-        updatedUser.avatar_url = originalAvatar;
-      }
-      setUser(updatedUser);
-      setProfileChanged(true);
-
-      log.info("Incognito mode updated successfully", {
-        op_id: opId,
-        user_id: user.id,
-        new_status: updatedUser.is_hidden,
-      });
-    } catch (err) {
-      log.error("Failed to update is_hidden status", {
-        op_id: opId,
-        user_id: user.id,
-        error: String(err),
-      });
-    } finally {
-      setLoading(false);
-    }
-  };
+  }, [user?.balance]);
 
   const handleLogoClick = () => {
     const currentPath = window.location.pathname;
@@ -101,37 +62,19 @@ export default function Header() {
         </div>
       )}
 
-      <button
-        className={`${styles.incognitoBtn} ${user?.is_hidden ? styles.active : ""}`}
-        onClick={(e) => {
-          const btn = e.currentTarget;
-          btn.classList.remove(styles.spring);
-          void btn.offsetWidth;
-          btn.classList.add(styles.spring);
-
-          setTimeout(() => {
-            btn.classList.remove(styles.spring);
-          }, 310);
-
-          handleToggleName();
-        }}
-        disabled={loading}
-        title="Переключить отображение имени"
-      >
-       <div className={styles.avatarWrap}>
-       <img
-          src={
-            user?.is_hidden
-              ? "/assets/Header/profile-oval.svg"
-              :  user?.avatar_url || originalAvatar || "/assets/Header/profile-oval.svg"
-          }
-          alt="Инкогнито"
-          className={styles.incognitoAvatar}
-        />
-       </div>
-
-        {/* <img src="/assets/right-arrow.svg" alt="" /> */}
-      </button>
+      <div className={styles.avatarContainer}>
+        <div className={styles.avatarWrap}>
+          <img
+            src={
+              user?.is_hidden
+                ? "/assets/Header/profile-oval.svg"
+                : user?.avatar_url || originalAvatar || "/assets/Header/profile-oval.svg"
+            }
+            alt="Аватар пользователя"
+            className={styles.incognitoAvatar}
+          />
+        </div>
+      </div>
       </div>
     </div>
     </div>
