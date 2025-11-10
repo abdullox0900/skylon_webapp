@@ -41,10 +41,11 @@ function TableRow({ bet }: { bet: TransactionEntry }) {
       <Link
           ref={slotRef}
           href={`/game/${bet.game_uuid}`}
-        >
-  <div className={styles.slotBox}>
-        <img className={styles.slotImg} src={bet?.slot_image_url || "/slot-box.svg"} alt="" />
-      </div>        </Link>
+          >
+          <div className={styles.slotBox}>
+              <img className={styles.slotImg} src={bet?.slot_image_url || "/slot-box.svg"} alt="" />
+          </div>       
+      </Link>
     
       <span className={styles.slotName}>
         <Link
