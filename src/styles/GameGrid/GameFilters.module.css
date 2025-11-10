@@ -265,8 +265,8 @@
 }
 
 .providerItem input[type="checkbox"]:checked {
-    background-color: #4ABD4D;
-    border-color: #4ABD4D;
+    background-color: #1873F2;
+    border-color: #1873F2;
 }
 
 .providerItem input[type="checkbox"]::after {
