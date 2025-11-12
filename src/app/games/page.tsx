@@ -8,6 +8,7 @@ import ProviderCarousel from "@/components/ProviderCarousel";
 import styles from "@/styles/ComponentsGlobal.module.css";
 import { createLogger } from "@/utils/logger";
 import SlotsBanner from "@/components/SlotsBanner";
+import GeoBlockedScreen from "@/components/GeoBlockedScreen";
 
 export default function SlotsPage() {
   const log = useRef(createLogger("SlotsPage")).current;

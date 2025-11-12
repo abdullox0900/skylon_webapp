@@ -1,106 +1,99 @@
 .wrapper {
-  min-height: 80vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 30px;
-  position: relative;
-  overflow: hidden;
-  margin-top: 15px;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 30px;
+    position: relative;
+    overflow: hidden;
+    margin-top: 15px;
 }
 
 .container {
-  position: relative;
-  z-index: 1;
-  padding: 32px 20px 24px;
-  border-radius: 32px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .animation {
-  width: 260px;
-  height: 230px;
-  margin-bottom: -18px;
+    width: 260px;
+    height: 230px;
 }
 
 .textBlock {
-  width: 80%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .title,
 .subtitle {
-  font-family: 'Onest', sans-serif;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 0;
+    font-family: 'Onest', sans-serif;
+    font-weight: 700;
+    text-align: center;
 }
 
 .title {
-  font-size: 22px;
-  line-height: 28px;
-  color: #fff;
-  margin-bottom: -15px;
+    font-family: 'Onest', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 100%;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 12px;
 }
 
 .subtitle {
-  font-size: 14px;
-  line-height: 18px;
-  color: rgba(194, 202, 212, 1);
+    font-family: 'Onest', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 100%;
+    text-align: center;
+    letter-spacing: -1%;
+    color: #727E9B;
+    margin-bottom: 24px;
 }
 
 .telegramButton {
-  width: 160px;
-  height: 44px;
-  padding: 0 16px;
-  border: none;
-  border-radius: 30px;
-  font-family: 'Onest', sans-serif;
-  font-weight: 700;
-  font-size: 16px;
-  letter-spacing: 0.2px;
-  line-height: 24px;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  text-decoration: none;
-  margin-bottom: 20px;
-  position: relative;
-  outline: none;
-  cursor: pointer;
-  background: linear-gradient(180deg, #045EBA 0%, #0571CF 100%);
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-  -webkit-tap-highlight-color: transparent;
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-family: 'Onest', sans-serif;
+    background-color: #212738;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: -1%;
+    color: #fff;
+    line-height: 24px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s ease;
+    text-decoration: none;
 }
 
 .telegramButton::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: rgba(255, 255, 255, 0);
-  transition: background 0.3s ease;
-  pointer-events: none;
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: rgba(255, 255, 255, 0);
+    transition: background 0.3s ease;
+    pointer-events: none;
 }
 
 .telegramButton:hover::after {
-  background: rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.06);
 }
 
 .telegramButton:active {
-  transform: scale(0.95);
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    transform: scale(0.95);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .telegramIcon {
-  width: 24px;
-  height: 24px;
+    width: 24px;
+    height: 24px;
 }
