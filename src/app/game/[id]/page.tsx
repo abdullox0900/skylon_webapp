@@ -30,7 +30,7 @@ export default function GamePage() {
     if (!gameId) {
       log.error("No gameId found in URL", { op_id: opId });
     } else {
-      log.info("GamePage opened", { op_id: opId, gameId });
+      log.info("GamePage opened.", { op_id: opId, gameId });
     }
 
     if (window.Telegram?.WebApp) {
