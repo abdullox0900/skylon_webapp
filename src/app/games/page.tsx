@@ -33,8 +33,9 @@ export default function SlotsPage() {
       <SlotsBanner title="Слоты" />
       <div className={styles.main}>
       <div className={styles.content}>
-        <GameGrid />
-        <GameRates />
+        {/* <GameGrid />
+        <GameRates /> */}
+        <GeoBlockedScreen />
       </div>
     </div>
     </main>

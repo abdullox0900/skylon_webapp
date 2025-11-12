@@ -3,10 +3,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 30px;
     position: relative;
     overflow: hidden;
+    margin: 0 auto;
     margin-top: 15px;
+    max-width: 380px;
 }
 
 .container {
@@ -54,6 +55,7 @@
     letter-spacing: -1%;
     color: #727E9B;
     margin-bottom: 24px;
+    max-width: 380px;
 }
 
 .telegramButton {
@@ -74,23 +76,9 @@
     text-decoration: none;
 }
 
-.telegramButton::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: rgba(255, 255, 255, 0);
-    transition: background 0.3s ease;
-    pointer-events: none;
-}
-
-.telegramButton:hover::after {
-    background: rgba(255, 255, 255, 0.06);
-}
 
 .telegramButton:active {
     transform: scale(0.95);
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .telegramIcon {
